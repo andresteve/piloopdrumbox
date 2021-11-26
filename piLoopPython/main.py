@@ -5,10 +5,11 @@ import random
 from subprocess import Popen, PIPE
 from queue import Queue, Empty
 from threading import Thread
-from resources.Button_pad import Button_pad
-from resources import RPi_I2C_driver
+import Button_pad
+import RPi_I2C_driver
 from datetime import datetime
-from resources.Py_to_pd import Py_to_pd
+import Py_to_pd
+import serial
 
 #Globals
 COLORS = ["red", "green", "blue", "yellow", "purple", "cyan", "white", "off"]
@@ -141,7 +142,12 @@ def read_button_status():
     """
     Thread function that continuously reads the button_pad input
     """
+    try:
+        arduinoSerial = serial.Serial(port='/dev/ttyS0', baudrate=9600, timeout=.1)
+    except:
+        print("Can't open serial com")
     while True:
+        """
         for column in range(4):
             for row in range(4):
                 if buttons.button_was_pressed[column][row]:
@@ -152,6 +158,9 @@ def read_button_status():
                     handle_button_release(column, row)
                     # Turn back button press to false
                     buttons.button_was_released[column][row] = False
+        """
+        msg = arduinoSerial.readline()
+        print(msg)
         time.sleep(1/2000)
 
 def handle_button_press(column, row):

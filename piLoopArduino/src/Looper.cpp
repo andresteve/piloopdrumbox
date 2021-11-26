@@ -32,23 +32,12 @@ void Looper::updateButtons(){
             if ( _keypad->key[i].stateChanged ){  // Only find keys that have changed state.
                 switch (_keypad->key[i].kstate) {  // Report active key state : IDLE, PRESSED, HOLD, or RELEASED
                     case PRESSED:
-                        if(_keypad->key[i].kstr == "R1"){
-                            Serial.println("Rec1");
-                            _serial->print(_keypad->key[i].kstr);
-                            _serial->print(" ");
-                            _serial->print(1);
-                            _serial->print(" ");
-                            _serial->println(0);
-                        }
-                        else
-                            sendDataToPi(_keypad->key[i].kstr,1);
+                        sendDataToPi(_keypad->key[i].kstr,1);
                         break;
                     case HOLD:
                         break;
                     case RELEASED:
-                        if(_keypad->key[i].kstr != "R1")
-                            sendDataToPi(_keypad->key[i].kstr,0);
-                        break;
+                        sendDataToPi(_keypad->key[i].kstr,0);
                     case IDLE:
                         break;
                 }

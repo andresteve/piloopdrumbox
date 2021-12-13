@@ -1,15 +1,24 @@
 #include "Keypad.h"
 
+#define LOOP_TRACKS 8                           //Define nmber of loop tracks
+typedef enum {EMPTY, REC, PLAY, OVERDUB, MUTE}Track;
+
 class Looper{
     private:
-        Keypad* _keypad;
+        Keypad* _drumpad;
+        Keypad* _trackpad;
         HardwareSerial* _serial;
         double _baudRate;
+        Track _tracks[8];
+        Key _muteKey;                //ISSUE: Not connected
+        
     public:
-        Looper(Keypad* k,  HardwareSerial* s, double baudRate);
+        Looper(Keypad* drumpad, Keypad* trackpad, HardwareSerial* s, double baudRate);
         void init();
-        void sendDataToPi(String msg, int value);
-        void updateButtons();
+        void sendDataToPi(byte msg, byte value);
+        void updateDrumpad();
+        void updateTrackpad();
+        void debugKey(Key k);
 };
 
 

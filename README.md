@@ -1,7 +1,5 @@
-# Pi-loop-drumbox!
-Welcome to my repo for the ultimate Raspberry pi + drum pad + loop station.  
-For updates on the build log see the [wiki](https://github.com/roberthofman/piloopdrumbox/wiki).   
-For a demo, see the [video](https://www.youtube.com/watch?v=OCAQdhkNPjU&t=1s).
+﻿# Pi-loop-drumbox!
+
 
 ## Install requirements
 ### PureData
@@ -15,15 +13,5 @@ Check if the only audio device is the USB-soundcard through `cat /proc/asound/ca
 
 ### Python
 The Python code is based on Python3. 
-Make sure you have installed the packages to work with GPIO pins:  
-`sudo apt-get install python-rpi.gpio`  
-You'll need a couple of python libraries:   
-* python-rpi.gpio
-* i2c–tools
-* smbus
 
-You'll need to wire up the GPIO pins to the correct pin numbers, which are coded in `Button_pad.py`. I followed [this](https://learn.sparkfun.com/tutorials/button-pad-hookup-guide?_ga=2.228180057.552363603.1611515792-1928249015.1605036658) guide.  
-I used an I2C driver by [DenisFromHR](https://gist.github.com/DenisFromHR/cc863375a6e19dce359d). 
 
-### Drum sounds
-I added a couple drum sounds. You can add additional .wav files following the number sintax in the folder. 

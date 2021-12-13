@@ -5,24 +5,10 @@ import random
 from subprocess import Popen, PIPE
 from queue import Queue, Empty
 from threading import Thread
-import Button_pad
-import RPi_I2C_driver
 from datetime import datetime
-import Py_to_pd
+from Py_to_pd import Py_to_pd
 import serial
 
-#Globals
-COLORS = ["red", "green", "blue", "yellow", "purple", "cyan", "white", "off"]
-LOOP_BUTTONS = [1,2,3,4,5,6,7,8]
-DRUMPAD_BUTTONS = [9,10,11,12,13,14,15,16]
-BLOCK = chr(255) #block to display on screen for metronome
-CIRCLE = [0x00,  0x00,  0x0E,  0x1F,  0x1F,  0x1F,  0x0E,  0x00]
-TRIANGLE = [0x08,  0x0C,  0x0E,  0x0F,  0x0E,  0x0C,  0x08,  0x00]
-SQUARE = [0x00,  0x00,  0x1F,  0x1F,  0x1F, 0x1F,  0x1F,  0x00]
-CLOCK = [0x00,  0x0E,  0x15,  0x15,  0x17,  0x11,  0x0E,  0x00]
-BLANK = chr(32) #blank block to display for metronome
-SCREEN_SIZE = 16 #screen size of the LCD display (length)
-#PD_PATH = "/Applications/Pd-0.51-1.app/Contents/Resources/bin/" #mac
 PD_PATH = "" #pi
 PORT_SEND_TO_PD = 3000 #port to communicate message TO PD
 PORT_RECEIVE_FROM_PD = 4000 #port to receive messages FROM PD
@@ -57,7 +43,8 @@ def process_pd_input(q):
 def handle_pd_msg(msg):
     """
     Handle a msg from puredata, which is split by | characters
-    """
+    
+    
     x = msg.split("|")
     del x[-1] #remove last element of the list (PD automatically adds \n)
     if x[0] == "counter":
@@ -65,6 +52,8 @@ def handle_pd_msg(msg):
             set_metronome(int(x[1]), int(x[2]))
     if x[0] == "status":
         handle_status(x[1], x[2:])
+    """
+    pass
 
 def handle_status(action, payload):
     """
@@ -92,6 +81,7 @@ def clear_record(payload):
     if not buttons.options_open:
         lcd.lcd_display_string_pos("|", 1, (payload[0]-1)*2)
         display_loop_status(replace_loop=payload[0])
+        
 
 def wait_record(payload):
     buttons.set_button_color(payload[0], COLORS[6]) #orange
@@ -113,11 +103,14 @@ def finish_record(payload):
     display_loop_status(replace_loop=payload[1])
 
 def display_loop_status(full_replace=False, replace_loop=0):
+    """
     if full_replace:
         status_to_str = ''.join('{}{}'.format("|", val) for val in loop_status.values())
         lcd.lcd_display_string(status_to_str, 1)
     else:
         lcd.lcd_display_string_pos(str(loop_status[replace_loop]), 1, (replace_loop-1)*2+1)
+    """
+    pass
 
 def finish_overdub(payload):
     buttons.set_button_color(payload[0], COLORS[1]) #green
@@ -143,25 +136,23 @@ def read_button_status():
     Thread function that continuously reads the button_pad input
     """
     try:
-        arduinoSerial = serial.Serial(port='/dev/ttyS0', baudrate=9600, timeout=.1)
+        arduinoSerial = serial.Serial(port='/dev/ttyS0', baudrate=115200, timeout=.1)
     except:
         print("Can't open serial com")
     while True:
-        """
-        for column in range(4):
-            for row in range(4):
-                if buttons.button_was_pressed[column][row]:
-                    handle_button_press(column, row)
-                    # Turn back button press to false
-                    buttons.button_was_pressed[column][row] = False
-                if buttons.button_was_released[column][row]:
-                    handle_button_release(column, row)
-                    # Turn back button press to false
-                    buttons.button_was_released[column][row] = False
-        """
-        msg = arduinoSerial.readline()
-        print(msg)
+        msg = arduinoSerial.readline().decode('utf-8')
+        if(msg):
+            x_list = msg.split() #Receiving buttonId and value
+            print("From serial id " , x_list[0] , " value ", x_list[1] )
+            handleButtonPress(int(x_list[0]), int(x_list[1]))
         time.sleep(1/2000)
+        
+def handleButtonPress(buttonId, value):
+    if(value == 1):         #Button PRESSED
+        send_msg.press_button(buttonId+1)
+    elif(value == 2):        #Button HOLD
+        send_msg.clear_loop(buttonId+1)
+    
 
 def handle_button_press(column, row):
     """
@@ -224,27 +215,6 @@ def handle_button_press(column, row):
         # Set previous button press time
         buttons.button_prev_press_time[column][row] = buttons.button_press_time[column][row]
 
-def toggle_options():
-    """
-    Function that toggles the option menu
-    """
-    lcd.lcd_clear() #reset lcd
-    buttons.options_open = not buttons.options_open
-    if buttons.options_open:
-        lcd.lcd_display_string("Options", 1)
-        update_option_lcd()
-    else:
-        buttons.options_open = False
-        buttons.option_number = 0
-        buttons.option_values[2] = 0
-        display_loop_status(full_replace=True)
-
-def update_option_lcd():
-    """
-    Update the lcd with the selected option
-    """
-    current_option = buttons.options[buttons.option_number]
-    lcd.lcd_display_string(current_option + ":" + str(buttons.option_values[buttons.option_number]), 2)
 
 def handle_button_release(column, row):
     """
@@ -279,26 +249,15 @@ def handle_button_release(column, row):
         #open the option menu
         toggle_options()
 
-# Set up the LCD
-lcd = RPi_I2C_driver.lcd()
-lcd.lcd_display_string("Loading...", 1)
-lcd.lcd_display_string("Version 2.5", 2)
-lcd.lcd_load_custom_chars([TRIANGLE, CIRCLE, SQUARE, CLOCK])
 
 # Set up communication to PureData
 send_msg = Py_to_pd(PD_PATH, PORT_SEND_TO_PD)
 
 # Get the number of drum samples
-drum_files = os.listdir('drum_sounds')
+drum_files = os.listdir('../puredata/drum_sounds')
 kit = ['crash', 'hh', 'kick', 'snare']
 num_drumkits = max([int(x.split('_')[1]) for x in drum_files if x.split('_')[0] in kit])
 
-# Set up the GPIO library and Pins
-buttons = Button_pad(num_drumkits)
-buttons.setup_buttons() #Initialize the Pins of leds/buttons
-for drumpad_button in DRUMPAD_BUTTONS:
-    #Set buttons to white color
-    buttons.set_button_color(drumpad_button, COLORS[5])
 
 # start the socket
 args = ["pdreceive", str(PORT_RECEIVE_FROM_PD)]
@@ -314,14 +273,25 @@ read_pd_thread.start()
 process_pd_thread.start()
 handle_button_press_release.start()
 
+
+# Setup audio card
+os.chdir('script')
+os.system('./Playback_to_Lineout.sh')
+os.system('./Record_from_Headset.sh')
+os.chdir('../')
+
 # start PD
-os.system(PD_PATH + 'pd -nogui main.pd &')
+os.chdir('../puredata')
+#os.system(PD_PATH + 'pd -nogui main.pd &')
+os.system(PD_PATH + 'pd main.pd &')
 time.sleep(2)
 
+"""
 display_loop_status(full_replace=True)
 lcd.lcd_display_string("Ready to play!", 2)
+"""
 
 while True:
     # Run button loop
-    buttons.scan()
+    #buttons.scan()
     time.sleep(1/1000)

@@ -4,36 +4,30 @@
 
 /*** SERIAL CONFIG ***/
 #define SR0_BAUD_RATE             9600      // Serial 0 used for debug
-#define SERIAL_TO_PI_BAUD_RATE    9600
+#define SERIAL_TO_PI_BAUD_RATE    115200    // Serial 1 used to communicate with Raspberry
 
-// BUG
-#define SERIAL_TO_PI                1       // Serial 1 communicate with Raspberry (Choose between serial 1-2-3)
 
 
 /*** DRUM PAD CONFIG ***/
 #define DRUM_PAD_ROWS 4 //four rows
 #define DRUM_PAD_COLS 4 //four columns
-byte rowPins[DRUM_PAD_ROWS] = {9, 8, 7, 6}; //connect to the row pinouts of the keypad
-byte colPins[DRUM_PAD_COLS] = {5, 4, 3, 2};//connect to the column pinouts of the keypad
+uint8_t drumRowPins[DRUM_PAD_ROWS] = {9, 8, 7, 6};  //connect to the row pinouts of the keypad
+uint8_t drumColPins[DRUM_PAD_COLS] = {5, 4, 3, 2};  //connect to the column pinouts of the keypad
+uint8_t drumpadKeyId[DRUM_PAD_ROWS * DRUM_PAD_COLS] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15}; //Assign key id .Start from (0,0) ... (0,1)
+uint8_t *drumpadLedId = drumpadKeyId;
 
+/*** TRACK PAD CONFIG ***/
+#define TRACK_PAD_ROWS 2 //four rows
+#define TRACK_PAD_COLS 2 //four columns
+uint8_t trackRowPins[TRACK_PAD_ROWS] = {13, 12}; //connect to the row pinouts of the keypad
+uint8_t trackColPins[TRACK_PAD_COLS] = {11, 10};//connect to the column pinouts of the keypad
+uint8_t trackpadKeyId[TRACK_PAD_ROWS * TRACK_PAD_ROWS] = { 16, 17, 18, 19}; //Assign key id .Start from (0,0) ... (0,1)
+uint8_t *trackpadLedId = trackpadKeyId;
 
-/*** REC BUTTONS CONFIG ***/
-#define REC_BUTTONS 4
-//byte recPins[REC_BUTTONS] = {}
+Keypad drumpadKeypad = Keypad( drumpadKeyId, drumpadLedId, drumRowPins, drumColPins, DRUM_PAD_ROWS, DRUM_PAD_COLS );
+Keypad trackpadKeypad = Keypad( trackpadKeyId, trackpadLedId, trackRowPins, trackColPins, TRACK_PAD_ROWS, TRACK_PAD_COLS );
 
-String drumPadButtons[DRUM_PAD_ROWS][DRUM_PAD_COLS] = {
-  {"Dr1", "Dr2", "Dr3", "Dr4"},
-  {"Dr5", "Dr6", "Dr7", "Dr8"},
-  {"Dr9", "Dr10", "Dr11", "Dr12"},
-  //{"Dr13", "Dr14", "Dr15", "Dr16"} original
-  {"R1", "R2", "R3", "R4"}
-};
-
-String recButtons[REC_BUTTONS] = {"R1", "R2", "R3", "R4"};
-
-Keypad keypad = Keypad( makeKeymap(drumPadButtons), rowPins, colPins, DRUM_PAD_ROWS, DRUM_PAD_COLS );
-
-Looper looper = Looper(&keypad, &Serial1, SERIAL_TO_PI_BAUD_RATE);
+Looper looper = Looper(&drumpadKeypad, &trackpadKeypad, &Serial1, SERIAL_TO_PI_BAUD_RATE);
 
 
 
@@ -43,5 +37,5 @@ void setup() {
 }
 
 void loop() {
-  looper.updateButtons();
+  looper.updateDrumpad();
 }

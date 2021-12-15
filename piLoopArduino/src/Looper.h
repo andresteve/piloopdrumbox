@@ -2,7 +2,7 @@
 
 typedef enum {CLEAR_REC, START_REC, STOP_REC, START_OVERDUB, STOP_OVERDUB, WAIT_REC, MUTE_REC}  TrackState;
 typedef enum {STATUS, COUNTER } MsgId;
-typedef enum {AUDIO_MASTER, SELECT_KIT, BTN_PRESSED, CLEAR_LOOP, CLEAR_ALL, OVERDUB, AUDIO_INPUT}Channel;
+typedef enum {AUDIO_MASTER, SELECT_KIT, BTN_PRESSED, CLEAR_LOOP, CLEAR_ALL, OVERDUB, AUDIO_INPUT, LOOP_PRESSED}Channel;
 
 class Looper{
     private:
@@ -11,12 +11,12 @@ class Looper{
         HardwareSerial* _serial;
         double _baudRate;
         TrackState _trackState[8];
-        Key _muteKey;                //ISSUE: Not connected
+        Key* _muteKey;                
         uint8_t _metronome;
         uint8_t _metronomeMax;
         
     public:
-        Looper(Keypad* drumpad, Keypad* trackpad, HardwareSerial* s, double baudRate);
+        Looper(Keypad* drumpad, Keypad* trackpad, Key * muteKey, HardwareSerial* s, double baudRate);
         void init();
         void sendDataToPi(Channel msgChannel, uint8_t btnId);
         void updateDrumpad();

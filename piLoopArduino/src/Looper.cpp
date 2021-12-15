@@ -2,9 +2,10 @@
 #include "Keypad.h"
 
 
-Looper::Looper(Keypad* drumpad, Keypad* trackpad, HardwareSerial* s, double baudRate){
+Looper::Looper(Keypad* drumpad, Keypad* trackpad, Key * muteKey, HardwareSerial* s, double baudRate){
     _drumpad = drumpad;
     _trackpad = trackpad;
+    _muteKey = muteKey;
     _serial = s;
     _baudRate = baudRate;
 }
@@ -90,15 +91,15 @@ void Looper::updateTrackpad(){
         for (uint8_t i=0; i< (_trackpad->getNumberKeys()) ; i++){                           // Scan the whole key list.
             Key k = _trackpad->keys[i];           
             if (k.stateChanged && k.state != RELEASED){                                     // Only find keys that have changed state.
-                Channel msgCh = BTN_PRESSED;                                                //Start-stop rec
+                Channel msgCh = LOOP_PRESSED;                                                //Start-stop rec
                 if (k.state == HOLD){
                     msgCh = CLEAR_LOOP;                                                     // Clear
                 }                                 
                 else if(_trackState[i] == STOP_REC && k.state == PRESSED){
-                    if(_muteKey.state == PRESSED || true )  msgCh = BTN_PRESSED;            // ISSUE: Mute 
-                    else                                    msgCh = OVERDUB;                // Overdub 
+                    if(_muteKey->state == PRESSED || true )  msgCh = LOOP_PRESSED;            // ISSUE: Mute 
+                    else                                     msgCh = OVERDUB;                // Overdub 
                 }              
-                sendDataToPi(msgCh, k.id);                                                  // Send data to Pi
+                sendDataToPi(msgCh, i);                                                      // Send data to Pi. Channel + id(0-7)
            }
         }
     }

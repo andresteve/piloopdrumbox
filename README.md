@@ -1,5 +1,7 @@
 ﻿# Pi-loop-drumbox!
-
+```
+![Screenshot](images/diagram.png)
+```
 
 ## Install requirements
 ### PureData

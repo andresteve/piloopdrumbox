@@ -1,35 +1,35 @@
-#N canvas 446 234 713 415 12;
-#X obj 76 83 bng 45 250 50 0 lp-trig-1 button-1 empty 17 7 0 10 -262144
--1 -1;
-#X obj 150 83 bng 45 250 50 0 lp-trig-2 button-2 empty 17 7 0 10 -262144
--1 -1;
-#X obj 219 84 bng 45 250 50 0 lp-trig-3 button-3 empty 17 7 0 10 -262144
--1 -1;
-#X obj 290 84 bng 45 250 50 0 lp-trig-4 button-4 empty 17 7 0 10 -262144
--1 -1;
-#X obj 76 163 bng 45 250 50 0 lp-trig-5 button-5 empty 17 7 0 10 -262144
--1 -1;
-#X obj 150 163 bng 45 250 50 0 lp-trig-6 button-6 empty 17 7 0 10 -262144
--1 -1;
-#X obj 219 164 bng 45 250 50 0 lp-trig-7 button-7 empty 17 7 0 10 -262144
--1 -1;
-#X obj 290 164 bng 45 250 50 0 lp-trig-8 button-8 empty 17 7 0 10 -262144
--1 -1;
-#X obj 77 249 bng 45 250 50 0 kick-button-1 button-9 kick_1 0 55 0
+#N canvas 226 123 801 556 12;
+#X obj 76 83 bng 45 250 50 0 lp-trig-1 loop-button-1 empty 17 7 0 10
+-262144 -1 -1;
+#X obj 150 83 bng 45 250 50 0 lp-trig-2 loop-button-2 empty 17 7 0
+10 -262144 -1 -1;
+#X obj 218 83 bng 45 250 50 0 lp-trig-3 loop-button-3 empty 17 7 0
+10 -262144 -1 -1;
+#X obj 290 84 bng 45 250 50 0 lp-trig-4 loop-button-4 empty 17 7 0
+10 -262144 -1 -1;
+#X obj 76 163 bng 45 250 50 0 lp-trig-5 loop-button-5 empty 17 7 0
+10 -262144 -1 -1;
+#X obj 150 163 bng 45 250 50 0 lp-trig-6 loop-button-6 empty 17 7 0
+10 -262144 -1 -1;
+#X obj 219 164 bng 45 250 50 0 lp-trig-7 loop-button-7 empty 17 7 0
+10 -262144 -1 -1;
+#X obj 290 164 bng 45 250 50 0 lp-trig-8 loop-button-8 empty 17 7 0
+10 -262144 -1 -1;
+#X obj 74 463 bng 45 250 50 0 kick-button-1 button-13 kick_1 0 55 0
 10 -4034 -1 -1;
-#X obj 150 249 bng 45 250 50 0 snare-button-1 button-10 snare_1 0 55
+#X obj 76 391 bng 45 250 50 0 snare-button-1 button-9 snare_1 0 55
 0 10 -258113 -1 -1;
-#X obj 219 250 bng 45 250 50 0 hh-button-1 button-11 Highhat_1 0 55
-0 9 -4160 -1 -1;
-#X obj 290 250 bng 45 250 50 0 crash-button-1 button-12 Crash_1 0 55
+#X obj 79 250 bng 45 250 50 0 hh-button-1 button-1 Highhat_1 0 55 0
+9 -4160 -1 -1;
+#X obj 78 320 bng 45 250 50 0 crash-button-1 button-5 Crash_1 0 55
 0 10 -4032 -1 -1;
-#X obj 78 321 bng 45 250 50 0 kick-button-2 button-13 kick_2 0 55 0
-10 -4034 -1 -1;
-#X obj 151 321 bng 45 250 50 0 snare-button-2 button-14 snare_2 0 55
+#X obj 144 464 bng 45 250 50 0 kick-button-2 button-14 kick_2 0 55
+0 10 -4034 -1 -1;
+#X obj 144 392 bng 45 250 50 0 snare-button-2 button-10 snare_2 0 55
 0 10 -258113 -1 -1;
-#X obj 220 322 bng 45 250 50 0 hh-button-2 button-15 Highhat_2 0 55
+#X obj 150 251 bng 45 250 50 0 hh-button-2 button-2 Highhat_2 0 55
 0 9 -4160 -1 -1;
-#X obj 292 322 bng 45 250 50 0 crash-button-2 button-16 Crash_2 0 55
+#X obj 145 319 bng 45 250 50 0 crash-button-2 button-6 Crash_2 0 55
 0 10 -4032 -1 -1;
 #X obj 126 83 bng 15 250 50 0 clear-1 empty empty 17 7 0 10 -258113
 -1 -1;
@@ -47,68 +47,65 @@
 -1 -1;
 #X obj 341 165 bng 15 250 50 0 clear-8 empty empty 17 7 0 10 -258113
 -1 -1;
-#N canvas 271 97 1009 623 router 0;
+#N canvas 0 97 1280 623 router 0;
 #X obj 169 41 netreceive 3000;
-#X obj 18 397 s selected_kit;
-#X obj 18 336 loadbang;
-#X msg 18 365 1;
+#X obj 20 248 s selected_kit;
+#X obj 20 187 loadbang;
+#X msg 20 216 1;
 #X text 167 17 Open socket for Python input;
-#X obj 19 233 s dsp_status;
-#X obj 19 177 loadbang;
-#X msg 19 204 1;
-#X text 16 154 init value DSP: on;
-#X text 14 309 init value kit: 1;
-#X text 393 153 button presses 1-8: loop 9-16: drum;
-#X obj 394 556 s button-1;
-#X obj 394 168 select 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16;
-#X obj 413 533 s button-2;
-#X obj 433 509 s button-3;
-#X obj 452 486 s button-4;
-#X obj 472 461 s button-5;
-#X obj 491 438 s button-6;
-#X obj 511 414 s button-7;
-#X obj 530 391 s button-8;
-#X obj 550 367 s button-9;
-#X obj 569 344 s button-10;
-#X obj 589 320 s button-11;
-#X obj 608 297 s button-12;
-#X obj 628 273 s button-13;
-#X obj 647 250 s button-14;
-#X obj 667 226 s button-15;
-#X obj 686 204 s button-16;
-#X obj 188 182 select 1 2 3 4 5 6 7 8;
-#X obj 188 399 s clear-1;
-#X obj 206 375 s clear-2;
-#X obj 225 350 s clear-3;
-#X obj 244 325 s clear-4;
-#X obj 263 300 s clear-5;
-#X obj 282 275 s clear-6;
-#X obj 301 251 s clear-7;
-#X obj 320 228 s clear-8;
-#X text 209 162 clear loop: 1-8;
-#X obj 188 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 17 116 s dsp_status;
+#X obj 17 60 loadbang;
+#X msg 17 87 1;
+#X text 14 37 init value DSP: on;
+#X text 16 160 init value kit: 1;
+#X obj 166 165 select 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16;
+#X obj 185 530 s button-2;
+#X obj 205 506 s button-3;
+#X obj 224 483 s button-4;
+#X obj 244 458 s button-5;
+#X obj 263 435 s button-6;
+#X obj 283 411 s button-7;
+#X obj 302 388 s button-8;
+#X obj 322 364 s button-9;
+#X obj 341 341 s button-10;
+#X obj 361 317 s button-11;
+#X obj 380 294 s button-12;
+#X obj 400 270 s button-13;
+#X obj 419 247 s button-14;
+#X obj 439 223 s button-15;
+#X obj 458 201 s button-16;
+#X obj 573 169 select 1 2 3 4 5 6 7 8;
+#X obj 573 386 s clear-1;
+#X obj 591 362 s clear-2;
+#X obj 610 337 s clear-3;
+#X obj 629 312 s clear-4;
+#X obj 648 287 s clear-5;
+#X obj 667 262 s clear-6;
+#X obj 686 238 s clear-7;
+#X obj 705 215 s clear-8;
+#X text 594 149 clear loop: 1-8;
+#X obj 573 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 206 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 591 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 225 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 610 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 244 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 629 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 263 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 648 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 282 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 667 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 301 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 686 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 320 207 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj 705 194 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 37 492 s clear-all;
-#X text 12 466 clear all loops;
-#X text 18 136 channel 0;
-#X text 14 293 channel 1;
-#X text 391 140 channel 2;
-#X text 214 148 channel 3;
-#X text 56 447 channel 4;
+#X obj 670 91 s clear-all;
+#X text 645 65 clear all loops;
+#X text 16 19 channel 0;
+#X text 16 144 channel 1;
+#X text 599 135 channel 3;
+#X text 689 46 channel 4;
 #X obj 782 158 select 1 2 3 4 5 6 7 8;
 #X obj 800 183 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
@@ -136,74 +133,97 @@
 #X obj 914 204 s overdub-8;
 #X obj 782 183 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj 26 550 s audio_input_toggle;
-#X obj 169 102 route 0 1 2 3 4 5 6;
-#X text 43 528 channel 6;
-#X text 25 572 set audio input vol to 1/0;
-#X connect 0 0 73 0;
+#X obj 817 26 s audio_input_toggle;
+#X text 834 4 channel 6;
+#X text 816 48 set audio input vol to 1/0;
+#X text 163 137 channel 2;
+#X text 165 150 Drumpad buttons;
+#X obj 167 77 route 0 1 2 3 4 5 6 7;
+#X obj 397 438 select 1 2 3 4 5 6 7 8;
+#X text 410 403 channel 7;
+#X text 405 417 loop button 1-8;
+#X obj 166 553 s button-1;
+#X obj 398 621 s loop-button-1;
+#X obj 415 596 s loop-button-2;
+#X obj 435 572 s loop-button-3;
+#X obj 453 551 s loop-button-4;
+#X obj 472 529 s loop-button-5;
+#X obj 492 508 s loop-button-6;
+#X obj 510 486 s loop-button-7;
+#X obj 529 464 s loop-button-8;
+#X connect 0 0 74 0;
 #X connect 2 0 3 0;
 #X connect 3 0 1 0;
 #X connect 6 0 7 0;
 #X connect 7 0 5 0;
-#X connect 12 0 11 0;
-#X connect 12 1 13 0;
-#X connect 12 2 14 0;
-#X connect 12 3 15 0;
-#X connect 12 4 16 0;
-#X connect 12 5 17 0;
-#X connect 12 6 18 0;
-#X connect 12 7 19 0;
-#X connect 12 8 20 0;
-#X connect 12 9 21 0;
-#X connect 12 10 22 0;
-#X connect 12 11 23 0;
-#X connect 12 12 24 0;
-#X connect 12 13 25 0;
-#X connect 12 14 26 0;
-#X connect 12 15 27 0;
-#X connect 28 0 38 0;
-#X connect 28 1 39 0;
-#X connect 28 2 40 0;
-#X connect 28 3 41 0;
-#X connect 28 4 42 0;
-#X connect 28 5 43 0;
-#X connect 28 6 44 0;
-#X connect 28 7 45 0;
+#X connect 10 0 78 0;
+#X connect 10 1 11 0;
+#X connect 10 2 12 0;
+#X connect 10 3 13 0;
+#X connect 10 4 14 0;
+#X connect 10 5 15 0;
+#X connect 10 6 16 0;
+#X connect 10 7 17 0;
+#X connect 10 8 18 0;
+#X connect 10 9 19 0;
+#X connect 10 10 20 0;
+#X connect 10 11 21 0;
+#X connect 10 12 22 0;
+#X connect 10 13 23 0;
+#X connect 10 14 24 0;
+#X connect 10 15 25 0;
+#X connect 26 0 36 0;
+#X connect 26 1 37 0;
+#X connect 26 2 38 0;
+#X connect 26 3 39 0;
+#X connect 26 4 40 0;
+#X connect 26 5 41 0;
+#X connect 26 6 42 0;
+#X connect 26 7 43 0;
+#X connect 36 0 27 0;
+#X connect 37 0 28 0;
 #X connect 38 0 29 0;
 #X connect 39 0 30 0;
 #X connect 40 0 31 0;
 #X connect 41 0 32 0;
 #X connect 42 0 33 0;
 #X connect 43 0 34 0;
-#X connect 44 0 35 0;
-#X connect 45 0 36 0;
-#X connect 53 0 71 0;
-#X connect 53 1 54 0;
-#X connect 53 2 55 0;
-#X connect 53 3 56 0;
-#X connect 53 4 57 0;
-#X connect 53 5 58 0;
-#X connect 53 6 59 0;
-#X connect 53 7 60 0;
+#X connect 50 0 68 0;
+#X connect 50 1 51 0;
+#X connect 50 2 52 0;
+#X connect 50 3 53 0;
+#X connect 50 4 54 0;
+#X connect 50 5 55 0;
+#X connect 50 6 56 0;
+#X connect 50 7 57 0;
+#X connect 51 0 61 0;
+#X connect 52 0 62 0;
+#X connect 53 0 63 0;
 #X connect 54 0 64 0;
 #X connect 55 0 65 0;
 #X connect 56 0 66 0;
 #X connect 57 0 67 0;
-#X connect 58 0 68 0;
-#X connect 59 0 69 0;
-#X connect 60 0 70 0;
-#X connect 71 0 63 0;
-#X connect 73 0 5 0;
-#X connect 73 1 1 0;
-#X connect 73 2 12 0;
-#X connect 73 3 28 0;
-#X connect 73 4 46 0;
-#X connect 73 5 53 0;
-#X connect 73 6 72 0;
+#X connect 68 0 60 0;
+#X connect 74 0 5 0;
+#X connect 74 1 1 0;
+#X connect 74 2 10 0;
+#X connect 74 3 26 0;
+#X connect 74 4 44 0;
+#X connect 74 5 50 0;
+#X connect 74 6 69 0;
+#X connect 74 7 75 0;
+#X connect 75 0 79 0;
+#X connect 75 1 80 0;
+#X connect 75 2 81 0;
+#X connect 75 3 82 0;
+#X connect 75 4 83 0;
+#X connect 75 5 84 0;
+#X connect 75 6 85 0;
+#X connect 75 7 86 0;
 #X restore 382 88 pd router;
 #N canvas 0 97 1280 623 drumbox 0;
 #X obj 32 29 r selected_kit;
-#N canvas 7 188 1418 565 load_sounds 0;
+#N canvas 0 97 1280 623 load_sounds 0;
 #X obj 768 25 inlet;
 #N canvas 0 22 450 278 (subpatch) 0;
 #X array kick-1 40403 float 2;
@@ -270,6 +290,70 @@
 #X msg 1120 297 read -resize drum_sounds/crash_\$1_2.wav crash-2;
 #X obj 1120 393 s end-crash-2;
 #X text 692 4 input: int value of selected_kit;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array kick-3 40403 float 2;
+#X coords 0 0.1 40403 -0.1 100 50 1 0 0;
+#X restore 31 669 graph;
+#X obj 31 564 soundfiler;
+#X floatatom 31 597 10 0 0 0 - - -;
+#X obj 32 777 soundfiler;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array kick-4 24236 float 2;
+#X coords 0 0.1 24236 -0.1 100 50 1 0 0;
+#X restore 33 881 graph;
+#X floatatom 32 811 10 0 0 0 - - -;
+#X obj 417 561 soundfiler;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array snare-3 33075 float 2;
+#X coords 0 0.1 33075 -0.1 100 50 1 0 0;
+#X restore 418 665 graph;
+#X floatatom 417 595 10 0 0 0 - - -;
+#X obj 417 777 soundfiler;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array snare-4 29287 float 2;
+#X coords 0 0.1 29287 -0.1 100 50 1 0 0;
+#X restore 418 881 graph;
+#X floatatom 417 811 10 0 0 0 - - -;
+#X obj 782 562 soundfiler;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array hh-3 36201 float 2;
+#X coords 0 0.1 36201 -0.1 100 50 1 0 0;
+#X restore 783 666 graph;
+#X floatatom 782 596 10 0 0 0 - - -;
+#X obj 782 778 soundfiler;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array hh-4 43665 float 2;
+#X coords 0 0.1 43665 -0.1 100 50 1 0 0;
+#X restore 783 882 graph;
+#X floatatom 782 812 10 0 0 0 - - -;
+#X obj 1115 562 soundfiler;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array crash-3 24830 float 2;
+#X coords 0 0.1 24830 -0.1 100 50 1 0 0;
+#X restore 1116 666 graph;
+#X floatatom 1115 596 10 0 0 0 - - -;
+#X obj 1115 778 soundfiler;
+#N canvas 0 22 450 278 (subpatch) 0;
+#X array crash-4 27519 float 2;
+#X coords 0 0.1 27519 -0.1 100 50 1 0 0;
+#X restore 1116 882 graph;
+#X floatatom 1115 812 10 0 0 0 - - -;
+#X msg 31 529 read -resize drum_sounds/kick_\$1_1.wav kick-3;
+#X obj 31 630 s end-kick-3;
+#X msg 30 749 read -resize drum_sounds/kick_\$1_2.wav kick-4;
+#X obj 32 842 s end-kick-4;
+#X msg 417 530 read -resize drum_sounds/snare_\$1_1.wav snare-3;
+#X obj 417 626 s end-snare-3;
+#X msg 415 748 read -resize drum_sounds/snare_\$1_2.wav snare-4;
+#X obj 417 842 s end-snare-4;
+#X msg 782 531 read -resize drum_sounds/hh_\$1_1.wav hh-3;
+#X obj 782 627 s end-hh-3;
+#X msg 778 749 read -resize drum_sounds/hh_\$1_2.wav hh-4;
+#X obj 782 843 s end-hh-4;
+#X msg 1115 531 read -resize drum_sounds/crash_\$1_1.wav crash-3;
+#X msg 1115 748 read -resize drum_sounds/crash_\$1_2.wav crash-4;
+#X obj 1115 627 s end-crash-3;
+#X obj 1115 843 s end-crash-4;
 #X connect 0 0 4 0;
 #X connect 0 0 5 0;
 #X connect 0 0 14 0;
@@ -278,6 +362,14 @@
 #X connect 0 0 29 0;
 #X connect 0 0 37 0;
 #X connect 0 0 39 0;
+#X connect 0 0 66 0;
+#X connect 0 0 70 0;
+#X connect 0 0 74 0;
+#X connect 0 0 78 0;
+#X connect 0 0 68 0;
+#X connect 0 0 72 0;
+#X connect 0 0 76 0;
+#X connect 0 0 79 0;
 #X connect 2 0 3 0;
 #X connect 3 0 9 0;
 #X connect 4 0 2 0;
@@ -302,6 +394,30 @@
 #X connect 36 0 40 0;
 #X connect 37 0 31 0;
 #X connect 39 0 34 0;
+#X connect 43 0 44 0;
+#X connect 44 0 67 0;
+#X connect 45 0 47 0;
+#X connect 47 0 69 0;
+#X connect 48 0 50 0;
+#X connect 50 0 71 0;
+#X connect 51 0 53 0;
+#X connect 53 0 73 0;
+#X connect 54 0 56 0;
+#X connect 56 0 75 0;
+#X connect 57 0 59 0;
+#X connect 59 0 77 0;
+#X connect 60 0 62 0;
+#X connect 62 0 80 0;
+#X connect 63 0 65 0;
+#X connect 65 0 81 0;
+#X connect 66 0 43 0;
+#X connect 68 0 45 0;
+#X connect 70 0 48 0;
+#X connect 72 0 51 0;
+#X connect 74 0 54 0;
+#X connect 76 0 57 0;
+#X connect 78 0 60 0;
+#X connect 79 0 63 0;
 #X restore 32 103 pd load_sounds;
 #X obj 32 343 vline~;
 #X msg 32 312 \$1 \, \$2 \$3;
@@ -412,7 +528,7 @@
 #X text 861 154 Crash 1 and 2;
 #X text 195 8 setup default values for volume (to be adjusted later)
 ;
-#X obj 801 101 s~ drums;
+#X obj 793 136 s~ drums;
 #X obj 82 455 s~ kick-1;
 #X obj 75 762 s~ kick-2;
 #X obj 341 450 s~ snare-1;
@@ -434,6 +550,123 @@
 #X msg 400 67 0.7;
 #X msg 297 68 0.7;
 #X msg 193 68 0.8;
+#X obj 27 990 vline~;
+#X msg 27 959 \$1 \, \$2 \$3;
+#X msg 27 878 0;
+#X obj 27 909 pack f f f;
+#X text 34 938 start \, end \, duration;
+#X obj 166 878 / 44.1;
+#X obj 27 1074 *~;
+#X obj 27 1102 dac~;
+#X obj 25 1298 vline~;
+#X msg 25 1267 \$1 \, \$2 \$3;
+#X msg 25 1186 0;
+#X obj 25 1217 pack f f f;
+#X obj 164 1186 / 44.1;
+#X obj 25 1382 *~;
+#X obj 25 1410 dac~;
+#X obj 43 1354 r kick_vol;
+#X obj 45 1047 r kick_vol;
+#X obj 288 985 vline~;
+#X msg 288 954 \$1 \, \$2 \$3;
+#X msg 288 873 0;
+#X obj 288 904 pack f f f;
+#X obj 427 873 / 44.1;
+#X obj 288 1069 *~;
+#X obj 288 1097 dac~;
+#X obj 286 1293 vline~;
+#X msg 286 1262 \$1 \, \$2 \$3;
+#X msg 286 1181 0;
+#X obj 286 1212 pack f f f;
+#X obj 425 1181 / 44.1;
+#X obj 286 1377 *~;
+#X obj 286 1405 dac~;
+#X obj 306 1042 r snare_vol;
+#X obj 304 1349 r snare_vol;
+#X obj 556 985 vline~;
+#X msg 556 954 \$1 \, \$2 \$3;
+#X msg 556 873 0;
+#X obj 556 904 pack f f f;
+#X obj 695 873 / 44.1;
+#X obj 556 1069 *~;
+#X obj 556 1097 dac~;
+#X obj 554 1293 vline~;
+#X msg 554 1262 \$1 \, \$2 \$3;
+#X msg 554 1181 0;
+#X obj 554 1212 pack f f f;
+#X obj 693 1181 / 44.1;
+#X obj 554 1377 *~;
+#X obj 554 1405 dac~;
+#X obj 574 1042 r hh_vol;
+#X obj 572 1349 r hh_vol;
+#X obj 805 981 vline~;
+#X msg 805 950 \$1 \, \$2 \$3;
+#X msg 805 869 0;
+#X obj 805 900 pack f f f;
+#X obj 944 869 / 44.1;
+#X obj 805 1065 *~;
+#X obj 805 1093 dac~;
+#X obj 803 1289 vline~;
+#X msg 803 1258 \$1 \, \$2 \$3;
+#X msg 803 1177 0;
+#X obj 803 1208 pack f f f;
+#X obj 942 1177 / 44.1;
+#X obj 803 1373 *~;
+#X obj 803 1401 dac~;
+#X obj 823 1038 r crash_vol;
+#X obj 821 1345 r crash_vol;
+#X text 101 807 Kick 3 and 4;
+#X text 349 804 Snare 3 and 4;
+#X text 604 804 High Hat 3 and 4;
+#X text 856 801 Crash 3 and 4;
+#X obj 27 838 r kick-button-3;
+#X obj 166 854 r end-kick-3;
+#X obj 60 878 r end-kick-3;
+#X obj 27 1020 tabread4~ kick-3;
+#X obj 77 1102 s~ kick-3;
+#X obj 25 1146 r kick-button-4;
+#X obj 164 1162 r end-kick-4;
+#X obj 58 1186 r end-kick-4;
+#X obj 25 1328 tabread4~ kick-4;
+#X obj 70 1409 s~ kick-4;
+#X obj 288 833 r snare-button-3;
+#X obj 427 849 r end-snare-3;
+#X obj 321 873 r end-snare-3;
+#X obj 288 1015 tabread4~ snare-3;
+#X obj 336 1097 s~ snare-3;
+#X obj 286 1141 r snare-button-4;
+#X obj 425 1157 r end-snare-4;
+#X obj 319 1181 r end-snare-4;
+#X obj 286 1323 tabread4~ snare-4;
+#X obj 336 1405 s~ snare-4;
+#X obj 556 833 r hh-button-3;
+#X obj 695 849 r end-hh-3;
+#X obj 589 873 r end-hh-3;
+#X obj 556 1015 tabread4~ hh-3;
+#X obj 607 1099 s~ hh-3;
+#X obj 554 1141 r hh-button-4;
+#X obj 693 1157 r end-hh-4;
+#X obj 587 1181 r end-hh-4;
+#X obj 554 1323 tabread4~ hh-4;
+#X obj 600 1406 s~ hh-4;
+#X obj 805 829 r crash-button-3;
+#X obj 944 845 r end-crash-3;
+#X obj 838 869 r end-crash-3;
+#X obj 805 1011 tabread4~ crash-3;
+#X obj 851 1093 s~ crash-3;
+#X obj 803 1137 r crash-button-4;
+#X obj 942 1153 r end-crash-4;
+#X obj 836 1177 r end-crash-4;
+#X obj 803 1319 tabread4~ crash-4;
+#X obj 849 1401 s~ crash-4;
+#X obj 666 87 r~ kick-3;
+#X obj 667 111 r~ kick-4;
+#X obj 756 87 r~ snare-3;
+#X obj 757 110 r~ snare-4;
+#X obj 853 88 r~ hh-3;
+#X obj 853 114 r~ hh-4;
+#X obj 923 90 r~ crash-3;
+#X obj 923 112 r~ crash-4;
 #X connect 0 0 1 0;
 #X connect 2 0 13 0;
 #X connect 3 0 2 0;
@@ -555,6 +788,110 @@
 #X connect 129 0 102 0;
 #X connect 130 0 101 0;
 #X connect 131 0 26 0;
+#X connect 132 0 204 0;
+#X connect 133 0 132 0;
+#X connect 134 0 135 0;
+#X connect 135 0 133 0;
+#X connect 137 0 135 2;
+#X connect 138 0 139 0;
+#X connect 138 0 139 1;
+#X connect 138 0 205 0;
+#X connect 140 0 209 0;
+#X connect 141 0 140 0;
+#X connect 142 0 143 0;
+#X connect 143 0 141 0;
+#X connect 144 0 143 2;
+#X connect 145 0 146 0;
+#X connect 145 0 146 1;
+#X connect 145 0 210 0;
+#X connect 147 0 145 1;
+#X connect 148 0 138 1;
+#X connect 149 0 214 0;
+#X connect 150 0 149 0;
+#X connect 151 0 152 0;
+#X connect 152 0 150 0;
+#X connect 153 0 152 2;
+#X connect 154 0 155 0;
+#X connect 154 0 155 1;
+#X connect 154 0 215 0;
+#X connect 156 0 219 0;
+#X connect 157 0 156 0;
+#X connect 158 0 159 0;
+#X connect 159 0 157 0;
+#X connect 160 0 159 2;
+#X connect 161 0 162 0;
+#X connect 161 0 162 1;
+#X connect 161 0 220 0;
+#X connect 163 0 154 1;
+#X connect 164 0 161 1;
+#X connect 165 0 224 0;
+#X connect 166 0 165 0;
+#X connect 167 0 168 0;
+#X connect 168 0 166 0;
+#X connect 169 0 168 2;
+#X connect 170 0 171 0;
+#X connect 170 0 171 1;
+#X connect 170 0 225 0;
+#X connect 172 0 229 0;
+#X connect 173 0 172 0;
+#X connect 174 0 175 0;
+#X connect 175 0 173 0;
+#X connect 176 0 175 2;
+#X connect 177 0 178 0;
+#X connect 177 0 178 1;
+#X connect 177 0 230 0;
+#X connect 179 0 170 1;
+#X connect 180 0 177 1;
+#X connect 181 0 234 0;
+#X connect 182 0 181 0;
+#X connect 183 0 184 0;
+#X connect 184 0 182 0;
+#X connect 185 0 184 2;
+#X connect 186 0 187 0;
+#X connect 186 0 187 1;
+#X connect 186 0 235 0;
+#X connect 188 0 239 0;
+#X connect 189 0 188 0;
+#X connect 190 0 191 0;
+#X connect 191 0 189 0;
+#X connect 192 0 191 2;
+#X connect 193 0 194 0;
+#X connect 193 0 194 1;
+#X connect 193 0 240 0;
+#X connect 195 0 186 1;
+#X connect 196 0 193 1;
+#X connect 201 0 134 0;
+#X connect 202 0 137 0;
+#X connect 203 0 135 1;
+#X connect 204 0 138 0;
+#X connect 206 0 142 0;
+#X connect 207 0 144 0;
+#X connect 208 0 143 1;
+#X connect 209 0 145 0;
+#X connect 211 0 151 0;
+#X connect 212 0 153 0;
+#X connect 213 0 152 1;
+#X connect 214 0 154 0;
+#X connect 216 0 158 0;
+#X connect 217 0 160 0;
+#X connect 218 0 159 1;
+#X connect 219 0 161 0;
+#X connect 221 0 167 0;
+#X connect 222 0 169 0;
+#X connect 223 0 168 1;
+#X connect 224 0 170 0;
+#X connect 226 0 174 0;
+#X connect 227 0 176 0;
+#X connect 228 0 175 1;
+#X connect 229 0 177 0;
+#X connect 231 0 183 0;
+#X connect 232 0 185 0;
+#X connect 233 0 184 1;
+#X connect 234 0 186 0;
+#X connect 236 0 190 0;
+#X connect 237 0 192 0;
+#X connect 238 0 191 1;
+#X connect 239 0 193 0;
 #X restore 382 255 pd drumbox;
 #X text 461 255 drumbox logic;
 #X msg 14 35 \; pd dsp \$1;
@@ -789,7 +1126,7 @@ the loop;
 #X obj 341 184 tgl 15 0 empty mute-8 empty 17 7 0 10 -4032 -1 -1 0
 1;
 #X obj 127 124 tgl 15 0 empty rec-loop-1 empty 17 7 0 10 -4034 -1 -1
-1 1;
+0 1;
 #X obj 199 125 tgl 15 0 empty rec-loop-2 empty 17 7 0 10 -4034 -1 -1
 0 1;
 #X obj 269 125 tgl 15 0 empty rec-loop-3 empty 17 7 0 10 -4034 -1 -1
@@ -804,7 +1141,7 @@ the loop;
 0 1;
 #X obj 341 205 tgl 15 0 empty rec-loop-8 empty 17 7 0 10 -4034 -1 -1
 0 1;
-#N canvas 250 108 962 586 send_msg 1;
+#N canvas 250 108 962 586 send_msg 0;
 #X obj 225 345 r counter;
 #X obj 24 51 loadbang;
 #X obj 24 390 netsend;
@@ -918,5 +1255,21 @@ actual count Third byte: max;
 #X connect 10 0 2 1;
 #X restore 381 282 pd audio_input;
 #X text 494 282 audio input (soundcard);
+#X obj 214 463 bng 45 250 50 0 kick-button-3 button-15 kick_3 0 55
+0 10 -4034 -1 -1;
+#X obj 216 391 bng 45 250 50 0 snare-button-3 button-11 snare_3 0 55
+0 10 -258113 -1 -1;
+#X obj 218 251 bng 45 250 50 0 hh-button-3 button-3 Highhat_3 0 55
+0 9 -4160 -1 -1;
+#X obj 218 320 bng 45 250 50 0 crash-button-3 button-7 Crash_3 0 55
+0 10 -4032 -1 -1;
+#X obj 282 462 bng 45 250 50 0 kick-button-4 button-16 kick_4 0 55
+0 10 -4034 -1 -1;
+#X obj 284 391 bng 45 250 50 0 snare-button-4 button-12 snare_4 0 55
+0 10 -258113 -1 -1;
+#X obj 289 252 bng 45 250 50 0 hh-button-4 button-4 Highhat_4 0 55
+0 9 -4160 -1 -1;
+#X obj 290 318 bng 45 250 50 0 crash-button-4 button-8 Crash_4 0 55
+0 10 -4032 -1 -1;
 #X connect 28 0 27 0;
 #X connect 40 0 41 0;

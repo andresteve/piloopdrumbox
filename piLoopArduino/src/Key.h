@@ -4,7 +4,7 @@
 
 #include <Arduino.h>
 
-typedef enum{ RELEASED, PRESSED, HOLD, IDLE } KeyState;
+typedef enum{ RELEASED, PRESSED, HOLD } KeyState;
 
 const uint8_t NO_KEY = 255;
 const uint8_t NO_LED = 255;

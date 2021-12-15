@@ -30,7 +30,7 @@ void Keypad::init(){
 		keys[i].id = _idKey[i];
 		keys[i].idLed = _idLed[i];
 		keys[i].actualValue = 0;
-		keys[i].state = IDLE;
+		keys[i].state = RELEASED;
 		keys[i].stateChanged = false;
 	}
 }
@@ -68,7 +68,7 @@ bool Keypad::updateList() {
 	for(uint8_t i=0; i<(_nRows * _nCols); i++){
 		keys[i].keyUpdate(keys[i].state);									// Reset stateChanged variable
 		switch (keys[i].state) {
-			case IDLE:
+			case RELEASED:
 				if (keys[i].actualValue == PRESSED) {
 					keys[i].keyUpdate(PRESSED);
 					_holdTimer = millis(); }								// Get ready for next HOLD state.
@@ -82,9 +82,6 @@ bool Keypad::updateList() {
 			case HOLD:
 				if (keys[i].actualValue == RELEASED)
 					keys[i].keyUpdate(RELEASED);
-				break;
-			case RELEASED:
-				keys[i].keyUpdate(IDLE);
 				break;
 		}
 		if(keys[i].stateChanged)	anyActivity = true;						//If at least one key changed its status return true

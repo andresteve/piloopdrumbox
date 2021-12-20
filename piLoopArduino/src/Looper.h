@@ -1,4 +1,5 @@
 #include "Keypad.h"
+#include <FastLED.h>
 
 typedef enum {CLEAR_REC, START_REC, STOP_REC, START_OVERDUB, STOP_OVERDUB, WAIT_REC, MUTE_REC}  TrackState;
 typedef enum {STATUS, COUNTER } MsgId;
@@ -14,13 +15,16 @@ class Looper{
         Key* _muteKey;                
         uint8_t _metronome;
         uint8_t _metronomeMax;
+        CRGB* _leds;
         
     public:
-        Looper(Keypad* drumpad, Keypad* trackpad, Key * muteKey, HardwareSerial* s, double baudRate);
+        Looper(Keypad* drumpad, Keypad* trackpad, CRGB* leds, Key * muteKey, HardwareSerial* s, double baudRate);
         void init();
         void sendDataToPi(Channel msgChannel, uint8_t btnId);
         void updateDrumpad();
         void updateTrackpad();
+        void changeLedColor(uint8_t ledId, CRGB color);
+        void changeTrackLedColor(uint8_t trackNumber);
         void getDataFromPi();
         void updateTrackState( uint8_t *msg);
         void debugKey(Key k);

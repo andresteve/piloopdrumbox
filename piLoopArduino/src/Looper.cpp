@@ -2,9 +2,10 @@
 #include "Keypad.h"
 
 
-Looper::Looper(Keypad* drumpad, Keypad* trackpad, Key * muteKey, HardwareSerial* s, double baudRate){
+Looper::Looper(Keypad* drumpad, Keypad* trackpad, CRGB* leds, Key * muteKey, HardwareSerial* s, double baudRate){
     _drumpad = drumpad;
     _trackpad = trackpad;
+    _leds = leds;
     _muteKey = muteKey;
     _serial = s;
     _baudRate = baudRate;
@@ -53,31 +54,36 @@ void Looper::getDataFromPi(){
     msg[2]: metronome max value
 */
 void Looper::updateTrackState(uint8_t *msg){
-    uint8_t trackNumber = msg[2] - 1;
-    TrackState newState = static_cast<TrackState>(msg[1]);
+    uint8_t trackNumber = msg[2] - 1;                                                               // In puredata tracknumber goes from 1-8
+    TrackState newState = static_cast<TrackState>(msg[1]);      
     if(msg[0] == STATUS){
-        if(_trackState[trackNumber] == MUTE_REC && newState == MUTE_REC)                            // If already mute then unmute
-            _trackState[trackNumber] = STOP_REC;                                                    // Unmute
-        else
-            _trackState[trackNumber] = newState;
-        debugLoopTrack(trackNumber);
+        if(_trackState[trackNumber] == MUTE_REC && newState == MUTE_REC)    newState = STOP_REC;   // If already mute then unmute
+        _trackState[trackNumber] = newState;                                                       
+        changeTrackLedColor(trackNumber);
     }
     else if(msg[0] == COUNTER){
         _metronome = msg[1];
         _metronomeMax = msg[2];
-    }
-    
+    }  
 }
 
 
 //Update drumpad buttons
 void Looper::updateDrumpad(){
     // Update drumPad
+    Key k; CRGB ledColor;
     if (_drumpad->getKeys()){
         for (uint8_t i=0; i< (_drumpad->getNumberKeys()) ; i++){            // Scan the whole key list.
-            Key k = _drumpad->keys[i];
-            if ( k.stateChanged && k.state != RELEASED){                    // Only find keys that have changed state.
-                sendDataToPi(BTN_PRESSED, k.id);                            // Send data to Pi. Third byte is not used.
+            k = _drumpad->keys[i];
+            if ( k.stateChanged){                                           // Only find keys that have changed state.
+                if(k.state != RELEASED){
+                    sendDataToPi(BTN_PRESSED, k.id);                        // Send data to Pi. 
+                    ledColor = CRGB::Cyan;
+                }
+                else{
+                    ledColor = CRGB::Black;
+                }
+                changeLedColor(k.idLed, ledColor);
            }
         }
     }
@@ -86,23 +92,59 @@ void Looper::updateDrumpad(){
 
 // Update trackpad buttons. 
 void Looper::updateTrackpad(){
-    // Update trackpad
+    Key k; Channel msgCh;
     if (_trackpad->getKeys()){
         for (uint8_t i=0; i< (_trackpad->getNumberKeys()) ; i++){                           // Scan the whole key list.
-            Key k = _trackpad->keys[i];           
+            k = _trackpad->keys[i];           
             if (k.stateChanged && k.state != RELEASED){                                     // Only find keys that have changed state.
-                Channel msgCh = LOOP_PRESSED;                                                //Start-stop rec
+                msgCh = LOOP_PRESSED;                                                       // Start-stop rec
                 if (k.state == HOLD){
                     msgCh = CLEAR_LOOP;                                                     // Clear
                 }                                 
                 else if(_trackState[i] == STOP_REC && k.state == PRESSED){
-                    if(_muteKey->state == PRESSED || true )  msgCh = LOOP_PRESSED;            // ISSUE: Mute 
+                    if(_muteKey->state == PRESSED || true )  msgCh = LOOP_PRESSED;           // ISSUE (cancel true): Mute 
                     else                                     msgCh = OVERDUB;                // Overdub 
                 }              
                 sendDataToPi(msgCh, i);                                                      // Send data to Pi. Channel + id(0-7)
            }
         }
     }
+}
+
+
+
+void Looper::changeTrackLedColor(uint8_t trackNumber){
+    CRGB c = CRGB::Black;
+    switch (_trackState[trackNumber]){
+        case CLEAR_REC:
+            c = CRGB::Black;
+            break;
+        case START_REC:
+            c = CRGB::Red;
+            break;
+        case STOP_REC:
+            c = CRGB::Green;
+            break;
+        case START_OVERDUB:
+            c = CRGB::Red;
+            break;
+        case STOP_OVERDUB:
+            c = CRGB::GreenYellow;
+            break;
+        case WAIT_REC:
+            c = CRGB::Yellow;
+            break;
+        case MUTE_REC:
+            c = CRGB::Cyan;
+            break;
+    }
+    changeLedColor(trackNumber, c);
+}
+
+void Looper::changeLedColor(uint8_t ledId, CRGB color){
+    _leds[ledId] = color;
+    FastLED.show();
+    Serial.print(" LED ");Serial.println(ledId);
 }
 
 

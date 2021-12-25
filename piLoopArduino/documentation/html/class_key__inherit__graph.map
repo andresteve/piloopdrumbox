@@ -1,0 +1,4 @@
+<map id="Key" name="Key">
+<area shape="rect" id="node1" title="This class control a single key (button)" alt="" coords="17,5,64,32"/>
+<area shape="rect" id="node2" href="$class_keypad.html" title="This class control a button matrix." alt="" coords="5,80,76,107"/>
+</map>

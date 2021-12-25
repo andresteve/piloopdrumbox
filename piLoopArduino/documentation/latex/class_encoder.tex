@@ -1,0 +1,116 @@
+\hypertarget{class_encoder}{}\doxysection{Encoder Class Reference}
+\label{class_encoder}\index{Encoder@{Encoder}}
+
+
+This class control an incremental encoder.  
+
+
+
+
+{\ttfamily \#include $<$Encoder.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_encoder_a9020e596c3464cf81968e4adcce9ee27}{Encoder}} (uint8\+\_\+t pin\+C\+LK, uint8\+\_\+t pin\+DT, uint8\+\_\+t pin\+SW, long ppr, uint8\+\_\+t ppr\+Divider)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_encoder}{Encoder}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_encoder_a01e97423efe4bdd957c53f8d59fe2b74}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize \mbox{\hyperlink{class_encoder}{Encoder}} object. Setting the pin as I\+N\+P\+UT. Reset pulse count. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_encoder_aec60d5bc2fd9248ffd1fd48df3ddc160}\label{class_encoder_aec60d5bc2fd9248ffd1fd48df3ddc160}} 
+void \mbox{\hyperlink{class_encoder_aec60d5bc2fd9248ffd1fd48df3ddc160}{update\+Encoder}} ()
+\begin{DoxyCompactList}\small\item\em Read input pin and update pulse counter and direction. It count from 0 to ppr. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_encoder_a88622e8a7687bd71dd8d37aaa69dfb88}{get\+Pulses}} ()
+\begin{DoxyCompactList}\small\item\em Return counted pulse. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{class_encoder_a4b1d729e8f3b95a1c4aef80ab8c5cdcf}{get\+Direction}} ()
+\begin{DoxyCompactList}\small\item\em Get spin direction. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_encoder_ac7046bc89fc381018597bbba0cc0026e}{is\+Pressed}} ()
+\begin{DoxyCompactList}\small\item\em Return value of switch button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class control an incremental encoder. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_encoder_a9020e596c3464cf81968e4adcce9ee27}\label{class_encoder_a9020e596c3464cf81968e4adcce9ee27}} 
+\index{Encoder@{Encoder}!Encoder@{Encoder}}
+\index{Encoder@{Encoder}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{Encoder()}{Encoder()}}
+{\footnotesize\ttfamily Encoder\+::\+Encoder (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin\+C\+LK,  }\item[{uint8\+\_\+t}]{pin\+DT,  }\item[{uint8\+\_\+t}]{pin\+SW,  }\item[{long}]{ppr,  }\item[{uint8\+\_\+t}]{ppr\+Divider }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_encoder}{Encoder}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin\+C\+LK} & Pin signal C\+LK \\
+\hline
+{\em pin\+DT} & Pin signal DT \\
+\hline
+{\em pin\+SW} & Pin switch button \\
+\hline
+{\em ppr} & Pulse Per Revolution \\
+\hline
+{\em ppr\+Divider} & Pulse Per Revolution divider \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_encoder_a4b1d729e8f3b95a1c4aef80ab8c5cdcf}\label{class_encoder_a4b1d729e8f3b95a1c4aef80ab8c5cdcf}} 
+\index{Encoder@{Encoder}!getDirection@{getDirection}}
+\index{getDirection@{getDirection}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{getDirection()}{getDirection()}}
+{\footnotesize\ttfamily uint8\+\_\+t Encoder\+::get\+Direction (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get spin direction. 
+
+\begin{DoxyReturn}{Returns}
+0\+: CW 1\+:C\+CW 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_encoder_a88622e8a7687bd71dd8d37aaa69dfb88}\label{class_encoder_a88622e8a7687bd71dd8d37aaa69dfb88}} 
+\index{Encoder@{Encoder}!getPulses@{getPulses}}
+\index{getPulses@{getPulses}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{getPulses()}{getPulses()}}
+{\footnotesize\ttfamily uint8\+\_\+t Encoder\+::get\+Pulses (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return counted pulse. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t Number of pulses 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_encoder_a01e97423efe4bdd957c53f8d59fe2b74}\label{class_encoder_a01e97423efe4bdd957c53f8d59fe2b74}} 
+\index{Encoder@{Encoder}!init@{init}}
+\index{init@{init}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Encoder\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize \mbox{\hyperlink{class_encoder}{Encoder}} object. Setting the pin as I\+N\+P\+UT. Reset pulse count. 
+
+\mbox{\Hypertarget{class_encoder_ac7046bc89fc381018597bbba0cc0026e}\label{class_encoder_ac7046bc89fc381018597bbba0cc0026e}} 
+\index{Encoder@{Encoder}!isPressed@{isPressed}}
+\index{isPressed@{isPressed}!Encoder@{Encoder}}
+\doxysubsubsection{\texorpdfstring{isPressed()}{isPressed()}}
+{\footnotesize\ttfamily bool Encoder\+::is\+Pressed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return value of switch button. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Encoder.\+h\item 
+src/Encoder.\+cpp\end{DoxyCompactItemize}

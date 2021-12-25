@@ -1,6 +1,6 @@
 
-#ifndef KEY_H_
-#define KEY_H_
+#ifndef _KEY_H_
+#define _KEY_H_
 
 #include <Arduino.h>
 
@@ -9,6 +9,10 @@ typedef enum{ RELEASED, PRESSED, HOLD } KeyState;
 const uint8_t NO_KEY = 255;
 const uint8_t NO_LED = 255;
 
+/**
+ * @brief This class control a single key (button)
+ * 
+ */
 class Key {
 	public:
 		uint8_t id;

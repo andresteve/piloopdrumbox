@@ -1,0 +1,127 @@
+\hypertarget{class_keypad}{}\doxysection{Keypad Class Reference}
+\label{class_keypad}\index{Keypad@{Keypad}}
+
+
+This class control a button matrix.  
+
+
+
+
+{\ttfamily \#include $<$Keypad.\+h$>$}
+
+
+
+Inheritance diagram for Keypad\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{class_keypad__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Keypad\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=133pt]{class_keypad__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_keypad_a88c2e0ddc224d07a2438a9d5fa321ea8}{Keypad}} (uint8\+\_\+t $\ast$id\+Key\+Map, uint8\+\_\+t $\ast$id\+Led\+Map, uint8\+\_\+t $\ast$row, uint8\+\_\+t $\ast$col, uint8\+\_\+t num\+Rows, uint8\+\_\+t num\+Cols)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_keypad}{Keypad}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_keypad_a32681d11497c815a1f95720b6c5fe19e}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize keypad object. Initialize rows as O\+U\+T\+P\+UT and columns as I\+N\+P\+U\+T\+\_\+\+P\+U\+L\+L\+UP. Initialize key object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_keypad_af1bd1442ed21d22261237c18c5f11665}{get\+Keys}} ()
+\begin{DoxyCompactList}\small\item\em Scan keys every D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+T\+I\+ME ms. Return true if any of these are pressed. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_keypad_a0b435a3513f0da1b872abe54ba238536}{get\+Number\+Keys}} ()
+\begin{DoxyCompactList}\small\item\em Return number of keys. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_keypad_a5808c6fa9da81e2612fea5841a1f06de}\label{class_keypad_a5808c6fa9da81e2612fea5841a1f06de}} 
+\mbox{\hyperlink{class_key}{Key}} $\ast$ {\bfseries keys}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class control a button matrix. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_keypad_a88c2e0ddc224d07a2438a9d5fa321ea8}\label{class_keypad_a88c2e0ddc224d07a2438a9d5fa321ea8}} 
+\index{Keypad@{Keypad}!Keypad@{Keypad}}
+\index{Keypad@{Keypad}!Keypad@{Keypad}}
+\doxysubsubsection{\texorpdfstring{Keypad()}{Keypad()}}
+{\footnotesize\ttfamily Keypad\+::\+Keypad (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{id\+Key,  }\item[{uint8\+\_\+t $\ast$}]{id\+Led,  }\item[{uint8\+\_\+t $\ast$}]{row\+Pins,  }\item[{uint8\+\_\+t $\ast$}]{col\+Pins,  }\item[{uint8\+\_\+t}]{num\+Rows,  }\item[{uint8\+\_\+t}]{num\+Cols }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_keypad}{Keypad}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id\+Key} & Array of all buttons I\+Ds \\
+\hline
+{\em id\+Led} & Array of all leds I\+Ds. ~\newline
+ \\
+\hline
+{\em row\+Pins} & Array of all pins connected to the rows of the matrix \\
+\hline
+{\em col\+Pins} & Array of all pins connected to the colums of the matrix \\
+\hline
+{\em num\+Rows} & Number of rows in the matrix \\
+\hline
+{\em num\+Cols} & Number of columns in the matrix \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_keypad_af1bd1442ed21d22261237c18c5f11665}\label{class_keypad_af1bd1442ed21d22261237c18c5f11665}} 
+\index{Keypad@{Keypad}!getKeys@{getKeys}}
+\index{getKeys@{getKeys}!Keypad@{Keypad}}
+\doxysubsubsection{\texorpdfstring{getKeys()}{getKeys()}}
+{\footnotesize\ttfamily bool Keypad\+::get\+Keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Scan keys every D\+E\+B\+O\+U\+N\+C\+E\+\_\+\+T\+I\+ME ms. Return true if any of these are pressed. 
+
+\begin{DoxyReturn}{Returns}
+bool 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_keypad_a0b435a3513f0da1b872abe54ba238536}\label{class_keypad_a0b435a3513f0da1b872abe54ba238536}} 
+\index{Keypad@{Keypad}!getNumberKeys@{getNumberKeys}}
+\index{getNumberKeys@{getNumberKeys}!Keypad@{Keypad}}
+\doxysubsubsection{\texorpdfstring{getNumberKeys()}{getNumberKeys()}}
+{\footnotesize\ttfamily int Keypad\+::get\+Number\+Keys (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Return number of keys. 
+
+\begin{DoxyReturn}{Returns}
+int columns$\ast$rows 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_keypad_a32681d11497c815a1f95720b6c5fe19e}\label{class_keypad_a32681d11497c815a1f95720b6c5fe19e}} 
+\index{Keypad@{Keypad}!init@{init}}
+\index{init@{init}!Keypad@{Keypad}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Keypad\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize keypad object. Initialize rows as O\+U\+T\+P\+UT and columns as I\+N\+P\+U\+T\+\_\+\+P\+U\+L\+L\+UP. Initialize key object. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Keypad.\+h\item 
+src/Keypad.\+cpp\end{DoxyCompactItemize}

@@ -1,11 +1,10 @@
-#ifndef KEYPAD_H
-#define KEYPAD_H
+#ifndef _KEYPAD_H_
+#define _KEYPAD_H_
 
 #include "Key.h"
 
 #define DEBOUNCE_TIME 	10 // Not less than 1 ms
 #define HOLD_TIME 		500
-
 
 
 // bperrybap - Thanks for a well reasoned argument and the following macro(s).
@@ -24,7 +23,10 @@ do {							 \
 }while(0)
 #endif
 
-
+/**
+ * @brief This class control a button matrix.
+ * 
+ */
 class Keypad : public Key {
 	public:
 		Key *keys;

@@ -1,0 +1,154 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+
+
+\mbox{\hyperlink{class_looper}{Looper}}.  
+
+
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Fast\+L\+E\+D.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Keypad.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Looper.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Encoder.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}T\+F\+T.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a5aafc4e6ede8f55c58fe204303bfa037}\label{main_8cpp_a5aafc4e6ede8f55c58fe204303bfa037}} 
+\#define {\bfseries S\+R0\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+TE}~115200
+\item 
+\mbox{\Hypertarget{main_8cpp_a2d7bf0ed60583c395f84b3e6c126aa9e}\label{main_8cpp_a2d7bf0ed60583c395f84b3e6c126aa9e}} 
+\#define {\bfseries S\+E\+R\+I\+A\+L\+\_\+\+T\+O\+\_\+\+P\+I\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+TE}~115200
+\item 
+\mbox{\Hypertarget{main_8cpp_a84d177848d05b2046e0d5eb9f375199d}\label{main_8cpp_a84d177848d05b2046e0d5eb9f375199d}} 
+\#define {\bfseries D\+R\+U\+M\+\_\+\+P\+A\+D\+\_\+\+R\+O\+WS}~4
+\item 
+\mbox{\Hypertarget{main_8cpp_a4e54b93b5d68803ce2544b01ac0c43db}\label{main_8cpp_a4e54b93b5d68803ce2544b01ac0c43db}} 
+\#define {\bfseries D\+R\+U\+M\+\_\+\+P\+A\+D\+\_\+\+C\+O\+LS}~4
+\item 
+\mbox{\Hypertarget{main_8cpp_a632a85edefadc02b9b07f747b5bc3030}\label{main_8cpp_a632a85edefadc02b9b07f747b5bc3030}} 
+\#define {\bfseries T\+R\+A\+C\+K\+\_\+\+P\+A\+D\+\_\+\+R\+O\+WS}~2
+\item 
+\mbox{\Hypertarget{main_8cpp_a9c4cea6ab290543efcf63eea4ee0a6b8}\label{main_8cpp_a9c4cea6ab290543efcf63eea4ee0a6b8}} 
+\#define {\bfseries T\+R\+A\+C\+K\+\_\+\+P\+A\+D\+\_\+\+C\+O\+LS}~4
+\item 
+\mbox{\Hypertarget{main_8cpp_ab03da0a7e579498558baf45d908e623f}\label{main_8cpp_ab03da0a7e579498558baf45d908e623f}} 
+\#define {\bfseries M\+U\+T\+E\+\_\+\+K\+E\+Y\+\_\+\+ID}~24
+\item 
+\mbox{\Hypertarget{main_8cpp_aa69646d8eb693199073525517e1d57c0}\label{main_8cpp_aa69646d8eb693199073525517e1d57c0}} 
+\#define {\bfseries M\+U\+T\+E\+\_\+\+K\+E\+Y\+\_\+\+P\+IN}~22
+\item 
+\mbox{\Hypertarget{main_8cpp_a0ccaac3e7adddec360b0256203e54b4f}\label{main_8cpp_a0ccaac3e7adddec360b0256203e54b4f}} 
+\#define {\bfseries M\+U\+T\+E\+\_\+\+K\+E\+Y\+\_\+\+L\+E\+D\+\_\+\+ID}~24
+\item 
+\mbox{\Hypertarget{main_8cpp_a4c4ae9a4146ce8d6a5debc90300d9abd}\label{main_8cpp_a4c4ae9a4146ce8d6a5debc90300d9abd}} 
+\#define {\bfseries N\+U\+M\+\_\+\+L\+E\+DS}~24
+\item 
+\mbox{\Hypertarget{main_8cpp_a5f55b07707df2f2cf371f707207ed508}\label{main_8cpp_a5f55b07707df2f2cf371f707207ed508}} 
+\#define {\bfseries L\+E\+D\+\_\+\+D\+A\+T\+A\+\_\+\+P\+IN}~11
+\item 
+\mbox{\Hypertarget{main_8cpp_a388d6dfa989509b2924628cc89b186b8}\label{main_8cpp_a388d6dfa989509b2924628cc89b186b8}} 
+\#define {\bfseries E\+N\+C\+\_\+\+P\+I\+N\+\_\+\+C\+LK}~28
+\item 
+\mbox{\Hypertarget{main_8cpp_a5f9b3cc8732ec6510d5ecef80fa7a40c}\label{main_8cpp_a5f9b3cc8732ec6510d5ecef80fa7a40c}} 
+\#define {\bfseries E\+N\+C\+\_\+\+P\+I\+N\+\_\+\+DT}~29
+\item 
+\mbox{\Hypertarget{main_8cpp_a496cdfd6728ef4c73da5064ad9dd5202}\label{main_8cpp_a496cdfd6728ef4c73da5064ad9dd5202}} 
+\#define {\bfseries E\+N\+C\+\_\+\+P\+I\+N\+\_\+\+SW}~30
+\item 
+\mbox{\Hypertarget{main_8cpp_a23c9d2e89ab0003c30f8df6d0c53e1bb}\label{main_8cpp_a23c9d2e89ab0003c30f8df6d0c53e1bb}} 
+\#define {\bfseries E\+N\+C\+\_\+\+P\+PR}~20
+\item 
+\mbox{\Hypertarget{main_8cpp_a5c578388511b394a98258de9cb467d2f}\label{main_8cpp_a5c578388511b394a98258de9cb467d2f}} 
+\#define {\bfseries E\+N\+C\+\_\+\+P\+P\+R\+\_\+\+D\+I\+V\+I\+D\+ER}~1
+\item 
+\mbox{\Hypertarget{main_8cpp_a51529307207622c113ff0d584536be13}\label{main_8cpp_a51529307207622c113ff0d584536be13}} 
+\#define {\bfseries T\+F\+T\+\_\+\+DC}~31
+\item 
+\mbox{\Hypertarget{main_8cpp_a5f4d46ae101b77df78010c506601c87c}\label{main_8cpp_a5f4d46ae101b77df78010c506601c87c}} 
+\#define {\bfseries T\+F\+T\+\_\+\+CS}~32
+\item 
+\mbox{\Hypertarget{main_8cpp_ab40e9918d9141415a47e2a979292309c}\label{main_8cpp_ab40e9918d9141415a47e2a979292309c}} 
+\#define {\bfseries T\+F\+T\+\_\+\+R\+ST}~33
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}} 
+void {\bfseries setup} ()
+\item 
+\mbox{\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f}} 
+void {\bfseries loop} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_aa654c23786864ec7b28b6b56b2528205}\label{main_8cpp_aa654c23786864ec7b28b6b56b2528205}} 
+uint8\+\_\+t {\bfseries drum\+Row\+Pins} \mbox{[}D\+R\+U\+M\+\_\+\+P\+A\+D\+\_\+\+R\+O\+WS\mbox{]} = \{9, 8, 7, 6\}
+\item 
+\mbox{\Hypertarget{main_8cpp_a93fe661d584b03cf6ad3416f0233a00e}\label{main_8cpp_a93fe661d584b03cf6ad3416f0233a00e}} 
+uint8\+\_\+t {\bfseries drum\+Col\+Pins} \mbox{[}D\+R\+U\+M\+\_\+\+P\+A\+D\+\_\+\+C\+O\+LS\mbox{]} = \{5, 4, 3, 2\}
+\item 
+\mbox{\Hypertarget{main_8cpp_a8097ed4ea48af3a0149116eb1d209ab1}\label{main_8cpp_a8097ed4ea48af3a0149116eb1d209ab1}} 
+uint8\+\_\+t {\bfseries drumpad\+Key\+Id} \mbox{[}D\+R\+U\+M\+\_\+\+P\+A\+D\+\_\+\+R\+O\+WS $\ast$D\+R\+U\+M\+\_\+\+P\+A\+D\+\_\+\+C\+O\+LS\mbox{]} = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15\}
+\item 
+\mbox{\Hypertarget{main_8cpp_a0325d7ef4aa1392f983f07bda1de964f}\label{main_8cpp_a0325d7ef4aa1392f983f07bda1de964f}} 
+uint8\+\_\+t {\bfseries drumpad\+Led\+Id} \mbox{[}D\+R\+U\+M\+\_\+\+P\+A\+D\+\_\+\+R\+O\+WS $\ast$D\+R\+U\+M\+\_\+\+P\+A\+D\+\_\+\+C\+O\+LS\mbox{]} = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15\}
+\item 
+\mbox{\Hypertarget{main_8cpp_ab5b1a1b6a969850e8d97749431d5334e}\label{main_8cpp_ab5b1a1b6a969850e8d97749431d5334e}} 
+uint8\+\_\+t {\bfseries track\+Row\+Pins} \mbox{[}T\+R\+A\+C\+K\+\_\+\+P\+A\+D\+\_\+\+R\+O\+WS\mbox{]} = \{27, 26\}
+\item 
+\mbox{\Hypertarget{main_8cpp_abd348ac22111a19cf43a059be9b003db}\label{main_8cpp_abd348ac22111a19cf43a059be9b003db}} 
+uint8\+\_\+t {\bfseries track\+Col\+Pins} \mbox{[}T\+R\+A\+C\+K\+\_\+\+P\+A\+D\+\_\+\+C\+O\+LS\mbox{]} = \{25, 24, 23, 22\}
+\item 
+\mbox{\Hypertarget{main_8cpp_a5991a74a60092645140ad4ae0a68a763}\label{main_8cpp_a5991a74a60092645140ad4ae0a68a763}} 
+uint8\+\_\+t {\bfseries trackpad\+Key\+Id} \mbox{[}T\+R\+A\+C\+K\+\_\+\+P\+A\+D\+\_\+\+R\+O\+WS $\ast$T\+R\+A\+C\+K\+\_\+\+P\+A\+D\+\_\+\+C\+O\+LS\mbox{]} = \{16, 17, 18, 19, 20, 21, 22, 23\}
+\item 
+\mbox{\Hypertarget{main_8cpp_af9fda73931f6164674d0a8bb5637fcc5}\label{main_8cpp_af9fda73931f6164674d0a8bb5637fcc5}} 
+uint8\+\_\+t {\bfseries trackpad\+Led\+Id} \mbox{[}T\+R\+A\+C\+K\+\_\+\+P\+A\+D\+\_\+\+R\+O\+WS $\ast$T\+R\+A\+C\+K\+\_\+\+P\+A\+D\+\_\+\+C\+O\+LS\mbox{]} = \{16, 17, 18, 19, 20, 21, 22, 23\}
+\item 
+\mbox{\Hypertarget{main_8cpp_aa1545bf20a45cf9e344d527e95afc8a1}\label{main_8cpp_aa1545bf20a45cf9e344d527e95afc8a1}} 
+\mbox{\hyperlink{class_keypad}{Keypad}} {\bfseries drumpad\+Keypad} = \mbox{\hyperlink{class_keypad}{Keypad}}( drumpad\+Key\+Id, drumpad\+Led\+Id, drum\+Row\+Pins, drum\+Col\+Pins, D\+R\+U\+M\+\_\+\+P\+A\+D\+\_\+\+R\+O\+WS, D\+R\+U\+M\+\_\+\+P\+A\+D\+\_\+\+C\+O\+LS )
+\item 
+\mbox{\Hypertarget{main_8cpp_a5cfd7322ee7e30f1a2145e3b88e0df38}\label{main_8cpp_a5cfd7322ee7e30f1a2145e3b88e0df38}} 
+\mbox{\hyperlink{class_keypad}{Keypad}} {\bfseries trackpad\+Keypad} = \mbox{\hyperlink{class_keypad}{Keypad}}( trackpad\+Key\+Id, trackpad\+Led\+Id, track\+Row\+Pins, track\+Col\+Pins, T\+R\+A\+C\+K\+\_\+\+P\+A\+D\+\_\+\+R\+O\+WS, T\+R\+A\+C\+K\+\_\+\+P\+A\+D\+\_\+\+C\+O\+LS )
+\item 
+\mbox{\Hypertarget{main_8cpp_a95c65059bb7342ba389639bd4033a6b8}\label{main_8cpp_a95c65059bb7342ba389639bd4033a6b8}} 
+\mbox{\hyperlink{class_key}{Key}} {\bfseries mute\+Key} = \mbox{\hyperlink{class_key}{Key}}(M\+U\+T\+E\+\_\+\+K\+E\+Y\+\_\+\+ID, M\+U\+T\+E\+\_\+\+K\+E\+Y\+\_\+\+P\+IN, M\+U\+T\+E\+\_\+\+K\+E\+Y\+\_\+\+L\+E\+D\+\_\+\+ID)
+\item 
+\mbox{\Hypertarget{main_8cpp_a1b4f26a01e11d7eb2848bc41b0f6dd9d}\label{main_8cpp_a1b4f26a01e11d7eb2848bc41b0f6dd9d}} 
+C\+R\+GB {\bfseries leds} \mbox{[}N\+U\+M\+\_\+\+L\+E\+DS\mbox{]}
+\item 
+\mbox{\Hypertarget{main_8cpp_ac889131be26280ac1257e74efdd1d937}\label{main_8cpp_ac889131be26280ac1257e74efdd1d937}} 
+\mbox{\hyperlink{class_encoder}{Encoder}} {\bfseries menu\+Encoder} = \mbox{\hyperlink{class_encoder}{Encoder}}(E\+N\+C\+\_\+\+P\+I\+N\+\_\+\+C\+LK, E\+N\+C\+\_\+\+P\+I\+N\+\_\+\+DT, E\+N\+C\+\_\+\+P\+I\+N\+\_\+\+SW, E\+N\+C\+\_\+\+P\+PR, E\+N\+C\+\_\+\+P\+P\+R\+\_\+\+D\+I\+V\+I\+D\+ER)
+\item 
+\mbox{\Hypertarget{main_8cpp_af80b234781d74cb411f7355ea969581d}\label{main_8cpp_af80b234781d74cb411f7355ea969581d}} 
+\mbox{\hyperlink{class_t_f_t}{T\+FT}} {\bfseries tft} = \mbox{\hyperlink{class_t_f_t}{T\+FT}}(T\+F\+T\+\_\+\+CS, T\+F\+T\+\_\+\+DC, T\+F\+T\+\_\+\+R\+ST, \&menu\+Encoder)
+\item 
+\mbox{\Hypertarget{main_8cpp_a3d00aa6cb75fad056711427f2292e34f}\label{main_8cpp_a3d00aa6cb75fad056711427f2292e34f}} 
+\mbox{\hyperlink{class_looper}{Looper}} {\bfseries looper} = \mbox{\hyperlink{class_looper}{Looper}}(\&drumpad\+Keypad, \&trackpad\+Keypad, \&tft, leds, \&mute\+Key, \&Serial1, S\+E\+R\+I\+A\+L\+\_\+\+T\+O\+\_\+\+P\+I\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+TE)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_looper}{Looper}}. 
+
+\begin{DoxyAuthor}{Author}
+Stefano Andreoni 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2021-\/12-\/25
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+Copyright (c) 2021 
+\end{DoxyCopyright}

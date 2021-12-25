@@ -1,0 +1,215 @@
+\hypertarget{class_looper}{}\doxysection{Looper Class Reference}
+\label{class_looper}\index{Looper@{Looper}}
+
+
+This class control a looper station. It is composed by\+:  
+
+
+
+
+{\ttfamily \#include $<$Looper.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_looper_aacb589e1dfa14c4f0bb17c5560ada1ef}{Looper}} (\mbox{\hyperlink{class_keypad}{Keypad}} $\ast$drumpad, \mbox{\hyperlink{class_keypad}{Keypad}} $\ast$trackpad, \mbox{\hyperlink{class_t_f_t}{T\+FT}} $\ast$tft, C\+R\+GB $\ast$leds, \mbox{\hyperlink{class_key}{Key}} $\ast$mute\+Key, Hardware\+Serial $\ast$s, double baud\+Rate)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_looper}{Looper}} constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_looper_a3a5267b058b5453d4340295c1c6b5a15}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize \mbox{\hyperlink{class_looper}{Looper}} object. Initialize serial communication. Initialize drumpad, trackpad, tft objects. Clear loop tracks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_looper_aa9d28c77f46524706c5a36fcc1c98756}{send\+Data\+To\+Pi}} (Channel msg\+Channel, uint8\+\_\+t btn\+Id)
+\begin{DoxyCompactList}\small\item\em Send data to Raspberry though serial. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_looper_a3e7a03ebbe039f0217a17ec958e9a06a}{update\+Track\+State}} (uint8\+\_\+t $\ast$msg)
+\begin{DoxyCompactList}\small\item\em Update loop track state using data received from Raspberry. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_looper_a7877ba5adc9dc3ccd058fa0f08cf32ec}\label{class_looper_a7877ba5adc9dc3ccd058fa0f08cf32ec}} 
+void \mbox{\hyperlink{class_looper_a7877ba5adc9dc3ccd058fa0f08cf32ec}{update\+Drumpad}} ()
+\begin{DoxyCompactList}\small\item\em Update drumpad buttons. Get pressed buttons and send a message to Raspberry if pressed. Change button\textquotesingle{}s led color. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_looper_a20d6f6f71fd10d43263c979130a8c87e}\label{class_looper_a20d6f6f71fd10d43263c979130a8c87e}} 
+void \mbox{\hyperlink{class_looper_a20d6f6f71fd10d43263c979130a8c87e}{update\+Trackpad}} ()
+\begin{DoxyCompactList}\small\item\em Update trackpad buttons. Get pressed buttons and send a message to Raspberry if pressed. Update loop tracks status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_looper_a971a69dd7d654a70fd0471bbca9fb634}{update\+T\+FT}} ()
+\begin{DoxyCompactList}\small\item\em Update \mbox{\hyperlink{class_t_f_t}{T\+FT}} screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_looper_a1940f8ee8830ff345508e089d2251ee2}{change\+Led\+Color}} (uint8\+\_\+t led\+Id, C\+R\+GB color)
+\begin{DoxyCompactList}\small\item\em Change neopixel led color. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_looper_a6c95a195ace7fa130b979831f2d5b084}{change\+Track\+Led\+Color}} (uint8\+\_\+t track\+Number)
+\begin{DoxyCompactList}\small\item\em Update loop track\textquotesingle{}s led color depending on its state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_looper_ab8b591981adf45bc182307b5cf8878cd}{get\+Data\+From\+Pi}} ()
+\begin{DoxyCompactList}\small\item\em Get data from Raspberry. Use 3 byte message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_looper_a997b58c10d38c6f25fc39a598990fab8}{debug\+Key}} (\mbox{\hyperlink{class_key}{Key}} k)
+\begin{DoxyCompactList}\small\item\em Serial debug. \mbox{\hyperlink{class_key}{Key}} status. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_looper_a67976fa54cf405d905b7268d07c48332}{debug\+Loop\+Track}} (uint8\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Serial debug. Loop track. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class control a looper station. It is composed by\+: 
+
+
+\begin{DoxyItemize}
+\item Drumpad to play sounds (\mbox{\hyperlink{class_keypad}{Keypad}} object)
+\item Trackpad to control loop tracks (\mbox{\hyperlink{class_keypad}{Keypad}} object)
+\item Mutekey to mute loop tracks (\mbox{\hyperlink{class_key}{Key}} object)
+\item \mbox{\hyperlink{class_t_f_t}{T\+FT}} screen and encoder (\mbox{\hyperlink{class_t_f_t}{T\+FT}} object)
+\item Neopixel leds (C\+R\+GB object) 
+\end{DoxyItemize}
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_looper_aacb589e1dfa14c4f0bb17c5560ada1ef}\label{class_looper_aacb589e1dfa14c4f0bb17c5560ada1ef}} 
+\index{Looper@{Looper}!Looper@{Looper}}
+\index{Looper@{Looper}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{Looper()}{Looper()}}
+{\footnotesize\ttfamily Looper\+::\+Looper (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_keypad}{Keypad}} $\ast$}]{drumpad,  }\item[{\mbox{\hyperlink{class_keypad}{Keypad}} $\ast$}]{trackpad,  }\item[{\mbox{\hyperlink{class_t_f_t}{T\+FT}} $\ast$}]{tft,  }\item[{C\+R\+GB $\ast$}]{leds,  }\item[{\mbox{\hyperlink{class_key}{Key}} $\ast$}]{mute\+Key,  }\item[{Hardware\+Serial $\ast$}]{s,  }\item[{double}]{baud\+Rate }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_looper}{Looper}} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em drumpad} & \mbox{\hyperlink{class_keypad}{Keypad}} object to play sound \\
+\hline
+{\em trackpad} & \mbox{\hyperlink{class_keypad}{Keypad}} object to handle looptracks \\
+\hline
+{\em tft} & \mbox{\hyperlink{class_t_f_t}{T\+FT}} object to control tft screen and encoder \\
+\hline
+{\em leds} & C\+R\+GB object to control leds \\
+\hline
+{\em mute\+Key} & \mbox{\hyperlink{class_key}{Key}} object to mute loop tracks \\
+\hline
+{\em s} & Serial used to communicate with Raspberry \\
+\hline
+{\em baud\+Rate} & Serial baud rate \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_looper_a1940f8ee8830ff345508e089d2251ee2}\label{class_looper_a1940f8ee8830ff345508e089d2251ee2}} 
+\index{Looper@{Looper}!changeLedColor@{changeLedColor}}
+\index{changeLedColor@{changeLedColor}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{changeLedColor()}{changeLedColor()}}
+{\footnotesize\ttfamily void Looper\+::change\+Led\+Color (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{led\+Id,  }\item[{C\+R\+GB}]{color }\end{DoxyParamCaption})}
+
+
+
+Change neopixel led color. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em led\+Id} & led ID (position in the strip) \\
+\hline
+{\em color} & C\+R\+GB color \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_looper_a6c95a195ace7fa130b979831f2d5b084}\label{class_looper_a6c95a195ace7fa130b979831f2d5b084}} 
+\index{Looper@{Looper}!changeTrackLedColor@{changeTrackLedColor}}
+\index{changeTrackLedColor@{changeTrackLedColor}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{changeTrackLedColor()}{changeTrackLedColor()}}
+{\footnotesize\ttfamily void Looper\+::change\+Track\+Led\+Color (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{track\+Number }\end{DoxyParamCaption})}
+
+
+
+Update loop track\textquotesingle{}s led color depending on its state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em track\+Number} & loop track number \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_looper_a997b58c10d38c6f25fc39a598990fab8}\label{class_looper_a997b58c10d38c6f25fc39a598990fab8}} 
+\index{Looper@{Looper}!debugKey@{debugKey}}
+\index{debugKey@{debugKey}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{debugKey()}{debugKey()}}
+{\footnotesize\ttfamily void Looper\+::debug\+Key (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_key}{Key}}}]{k }\end{DoxyParamCaption})}
+
+
+
+Serial debug. \mbox{\hyperlink{class_key}{Key}} status. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em k} & Selected key \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_looper_a67976fa54cf405d905b7268d07c48332}\label{class_looper_a67976fa54cf405d905b7268d07c48332}} 
+\index{Looper@{Looper}!debugLoopTrack@{debugLoopTrack}}
+\index{debugLoopTrack@{debugLoopTrack}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{debugLoopTrack()}{debugLoopTrack()}}
+{\footnotesize\ttfamily void Looper\+::debug\+Loop\+Track (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Serial debug. Loop track. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Loop track ID \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_looper_ab8b591981adf45bc182307b5cf8878cd}\label{class_looper_ab8b591981adf45bc182307b5cf8878cd}} 
+\index{Looper@{Looper}!getDataFromPi@{getDataFromPi}}
+\index{getDataFromPi@{getDataFromPi}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{getDataFromPi()}{getDataFromPi()}}
+{\footnotesize\ttfamily void Looper\+::get\+Data\+From\+Pi (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get data from Raspberry. Use 3 byte message. 
+
+\mbox{\Hypertarget{class_looper_a3a5267b058b5453d4340295c1c6b5a15}\label{class_looper_a3a5267b058b5453d4340295c1c6b5a15}} 
+\index{Looper@{Looper}!init@{init}}
+\index{init@{init}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void Looper\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize \mbox{\hyperlink{class_looper}{Looper}} object. Initialize serial communication. Initialize drumpad, trackpad, tft objects. Clear loop tracks. 
+
+\mbox{\Hypertarget{class_looper_aa9d28c77f46524706c5a36fcc1c98756}\label{class_looper_aa9d28c77f46524706c5a36fcc1c98756}} 
+\index{Looper@{Looper}!sendDataToPi@{sendDataToPi}}
+\index{sendDataToPi@{sendDataToPi}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{sendDataToPi()}{sendDataToPi()}}
+{\footnotesize\ttfamily void Looper\+::send\+Data\+To\+Pi (\begin{DoxyParamCaption}\item[{Channel}]{msg\+Channel,  }\item[{uint8\+\_\+t}]{btn\+Id }\end{DoxyParamCaption})}
+
+
+
+Send data to Raspberry though serial. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg\+Channel} & 0\+: A\+U\+D\+I\+O\+\_\+\+M\+A\+S\+T\+ER 1\+: S\+E\+L\+E\+C\+T\+\_\+\+K\+IT 2\+: B\+T\+N\+\_\+\+P\+R\+E\+S\+S\+ED 3\+: C\+L\+E\+A\+R\+\_\+\+L\+O\+OP 4\+: C\+L\+E\+A\+R\+\_\+\+A\+LL 5\+: O\+V\+E\+R\+D\+UB 6\+: A\+U\+D\+I\+O\+\_\+\+I\+N\+P\+UT 7\+: L\+O\+O\+P\+\_\+\+P\+R\+E\+S\+S\+ED \\
+\hline
+{\em btn\+Id} & Pressed button\textquotesingle{}s ID \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_looper_a971a69dd7d654a70fd0471bbca9fb634}\label{class_looper_a971a69dd7d654a70fd0471bbca9fb634}} 
+\index{Looper@{Looper}!updateTFT@{updateTFT}}
+\index{updateTFT@{updateTFT}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{updateTFT()}{updateTFT()}}
+{\footnotesize\ttfamily void Looper\+::update\+T\+FT (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update \mbox{\hyperlink{class_t_f_t}{T\+FT}} screen. 
+
+\mbox{\Hypertarget{class_looper_a3e7a03ebbe039f0217a17ec958e9a06a}\label{class_looper_a3e7a03ebbe039f0217a17ec958e9a06a}} 
+\index{Looper@{Looper}!updateTrackState@{updateTrackState}}
+\index{updateTrackState@{updateTrackState}!Looper@{Looper}}
+\doxysubsubsection{\texorpdfstring{updateTrackState()}{updateTrackState()}}
+{\footnotesize\ttfamily void Looper\+::update\+Track\+State (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{msg }\end{DoxyParamCaption})}
+
+
+
+Update loop track state using data received from Raspberry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The message is 3 byte long. If msg\mbox{[}0\mbox{]} == 0\+:S\+T\+A\+T\+US msg\mbox{[}1\mbox{]}\+: 0\+:C\+L\+E\+A\+R\+\_\+\+R\+EC 1\+: S\+T\+A\+R\+T\+\_\+\+R\+EC 2\+:S\+T\+O\+P\+\_\+\+R\+EC 3\+:S\+T\+A\+R\+T\+\_\+\+O\+V\+E\+R\+D\+UB 4\+:S\+T\+O\+P\+\_\+\+O\+V\+E\+R\+D\+UB 5\+:W\+A\+I\+T\+\_\+\+R\+EC 6\+:M\+U\+T\+E\+\_\+\+R\+EC msg\mbox{[}2\mbox{]}\+: loop track nummber (1-\/8)\\
+\hline
+\end{DoxyParams}
+If msg\mbox{[}0\mbox{]} == 1\+:C\+O\+U\+N\+T\+ER msg\mbox{[}1\mbox{]}\+: actual metronome count msg\mbox{[}2\mbox{]}\+: metronome max value 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/Looper.\+h\item 
+src/Looper.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,855 @@
+\hypertarget{class_i_l_i9341__due}{}\doxysection{I\+L\+I9341\+\_\+due Class Reference}
+\label{class_i_l_i9341__due}\index{ILI9341\_due@{ILI9341\_due}}
+
+
+Inheritance diagram for I\+L\+I9341\+\_\+due\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=155pt]{class_i_l_i9341__due__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for I\+L\+I9341\+\_\+due\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=202pt]{class_i_l_i9341__due__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a9a70cf1933e4048c246823605b8e0fc0}\label{class_i_l_i9341__due_a9a70cf1933e4048c246823605b8e0fc0}} 
+{\bfseries I\+L\+I9341\+\_\+due} (uint8\+\_\+t cs, uint8\+\_\+t dc, uint8\+\_\+t rst=255)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_accff93f4cdbe376becea1aaec377fb32}\label{class_i_l_i9341__due_accff93f4cdbe376becea1aaec377fb32}} 
+bool {\bfseries begin} (void)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3b49d70881c2119a1b0450082d3f442d}\label{class_i_l_i9341__due_a3b49d70881c2119a1b0450082d3f442d}} 
+void {\bfseries get\+Display\+Status} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a507e668d3761656767efc11493716f6e}\label{class_i_l_i9341__due_a507e668d3761656767efc11493716f6e}} 
+void {\bfseries fill\+Screen} (uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3b1ac2d5c5ec8ad0c4a1fea09852be41}\label{class_i_l_i9341__due_a3b1ac2d5c5ec8ad0c4a1fea09852be41}} 
+void {\bfseries fill\+Rect} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3a2fdb350035823678ed0764e3cc6bdf}\label{class_i_l_i9341__due_a3a2fdb350035823678ed0764e3cc6bdf}} 
+void {\bfseries fill\+Rect\+With\+Shader} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t($\ast$fill\+Shader)(uint16\+\_\+t rx, uint16\+\_\+t ry))
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_af84a477d283e7a9dcdd44b1c7f54683f}\label{class_i_l_i9341__due_af84a477d283e7a9dcdd44b1c7f54683f}} 
+void {\bfseries push\+Color} (uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_acf3c8180ecbf6b11dd567f00da4dc2bf}\label{class_i_l_i9341__due_acf3c8180ecbf6b11dd567f00da4dc2bf}} 
+void {\bfseries push\+Colors} (const uint16\+\_\+t $\ast$colors, uint16\+\_\+t offset, uint32\+\_\+t len)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a25eba31a1cf9d1919f7c4a5d295ec451}\label{class_i_l_i9341__due_a25eba31a1cf9d1919f7c4a5d295ec451}} 
+void {\bfseries push\+Colors} (uint16\+\_\+t $\ast$colors, uint16\+\_\+t offset, uint32\+\_\+t len)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a93b00e0c3127fa21767a4b2eea07779f}\label{class_i_l_i9341__due_a93b00e0c3127fa21767a4b2eea07779f}} 
+void {\bfseries draw\+Pixel} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_abb5cc56a6cc4834c6418c7a9189cb1e2}\label{class_i_l_i9341__due_abb5cc56a6cc4834c6418c7a9189cb1e2}} 
+void {\bfseries draw\+Fast\+V\+Line} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t h, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac4664e91f60b1d28629a957b8e4d6fb3}\label{class_i_l_i9341__due_ac4664e91f60b1d28629a957b8e4d6fb3}} 
+void {\bfseries draw\+Fast\+H\+Line} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ab86c75ed98b432fc18dd8b04037c50b5}\label{class_i_l_i9341__due_ab86c75ed98b432fc18dd8b04037c50b5}} 
+void {\bfseries draw\+Rect} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a2106c81e60de78d2837ce5536a940bd2}\label{class_i_l_i9341__due_a2106c81e60de78d2837ce5536a940bd2}} 
+void {\bfseries set\+Rotation} (ili\+Rotation r)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a7a2652246f75c059173f1711a93417bc}\label{class_i_l_i9341__due_a7a2652246f75c059173f1711a93417bc}} 
+void {\bfseries invert\+Display} (boolean i)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_acfb402511cadce534f323ed166c96ec0}\label{class_i_l_i9341__due_acfb402511cadce534f323ed166c96ec0}} 
+void {\bfseries display} (boolean d)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a0cbfaa47c4b2b54643ffebfe4f19e028}\label{class_i_l_i9341__due_a0cbfaa47c4b2b54643ffebfe4f19e028}} 
+void {\bfseries sleep} (boolean s)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_abad32404571931ce5db6d38cd9e7b1a9}\label{class_i_l_i9341__due_abad32404571931ce5db6d38cd9e7b1a9}} 
+void {\bfseries idle} (boolean i)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ab139824bfcaa9b17bdf89d0c4a37d200}\label{class_i_l_i9341__due_ab139824bfcaa9b17bdf89d0c4a37d200}} 
+void {\bfseries set\+Power\+Level} (pwr\+Level p)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aae415226d48a9b95c52190129b4dcb4b}\label{class_i_l_i9341__due_aae415226d48a9b95c52190129b4dcb4b}} 
+void {\bfseries set\+Addr\+Window} (uint16\+\_\+t x0, uint16\+\_\+t y0, uint16\+\_\+t x1, uint16\+\_\+t y1)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a355bdd1c789e57d1b5d12c11abefa0d1}\label{class_i_l_i9341__due_a355bdd1c789e57d1b5d12c11abefa0d1}} 
+void {\bfseries set\+Addr\+Window\+Rect} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aae5406984ffc13128c9806de235ff074}\label{class_i_l_i9341__due_aae5406984ffc13128c9806de235ff074}} 
+void {\bfseries set\+S\+P\+I\+Clock\+Divider} (uint8\+\_\+t divider)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a6614f23751c175c99bf9086ff49a874a}\label{class_i_l_i9341__due_a6614f23751c175c99bf9086ff49a874a}} 
+void {\bfseries set\+Angle\+Offset} (int16\+\_\+t angle\+Offset)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a8152ecae0be336574724ee20c40ce139}\label{class_i_l_i9341__due_a8152ecae0be336574724ee20c40ce139}} 
+void {\bfseries set\+Arc\+Params} (float arc\+Angle\+Max)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a4eb3f59da191f48be053408eb929528a}\label{class_i_l_i9341__due_a4eb3f59da191f48be053408eb929528a}} 
+uint16\+\_\+t {\bfseries read\+Pixel} (int16\+\_\+t x, int16\+\_\+t y)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a72d9397cdf92499ac0473ac4457b4150}\label{class_i_l_i9341__due_a72d9397cdf92499ac0473ac4457b4150}} 
+void {\bfseries draw\+Circle} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t r, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a149e337df68157676e1f13f75d0e93a3}\label{class_i_l_i9341__due_a149e337df68157676e1f13f75d0e93a3}} 
+void {\bfseries fill\+Circle} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t r, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a440e8219bb7f6b36149af988e46802c6}\label{class_i_l_i9341__due_a440e8219bb7f6b36149af988e46802c6}} 
+void {\bfseries draw\+Triangle} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, int16\+\_\+t x2, int16\+\_\+t y2, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a476e5f2a12857556e57335f9c781b76a}\label{class_i_l_i9341__due_a476e5f2a12857556e57335f9c781b76a}} 
+void {\bfseries fill\+Triangle} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, int16\+\_\+t x2, int16\+\_\+t y2, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aeda3a594d1c6d45b54041439f646992c}\label{class_i_l_i9341__due_aeda3a594d1c6d45b54041439f646992c}} 
+void {\bfseries draw\+Round\+Rect} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t radius, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ab1dd7ce5e0c0d39eca477520e4d841e0}\label{class_i_l_i9341__due_ab1dd7ce5e0c0d39eca477520e4d841e0}} 
+void {\bfseries fill\+Round\+Rect} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t radius, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ad85061f30ad350bcb08420c8ed19d7b7}\label{class_i_l_i9341__due_ad85061f30ad350bcb08420c8ed19d7b7}} 
+void {\bfseries draw\+Bitmap} (const uint8\+\_\+t $\ast$bitmap, int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a4371a6a2172a34f9fd4035c90dcf8ec4}\label{class_i_l_i9341__due_a4371a6a2172a34f9fd4035c90dcf8ec4}} 
+void {\bfseries draw\+Bitmap} (const uint8\+\_\+t $\ast$bitmap, int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t color, uint16\+\_\+t bgcolor)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a4a01222e51fcc40159eda46ff544cc82}\label{class_i_l_i9341__due_a4a01222e51fcc40159eda46ff544cc82}} 
+void {\bfseries draw\+Image} (const uint16\+\_\+t $\ast$colors, uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_adc4f63daf1f97418fd0686818e1abf8a}\label{class_i_l_i9341__due_adc4f63daf1f97418fd0686818e1abf8a}} 
+uint8\+\_\+t {\bfseries get\+Rotation} (void)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a88acf99a673c69c6cae8c2b90c078ab7}\label{class_i_l_i9341__due_a88acf99a673c69c6cae8c2b90c078ab7}} 
+void {\bfseries draw\+Line} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a40053419c18c27cbaa99be8e223f15c9}\label{class_i_l_i9341__due_a40053419c18c27cbaa99be8e223f15c9}} 
+void {\bfseries draw\+Line\+By\+Angle} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t angle, uint16\+\_\+t length, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a219c1499ef2fb31a41b60121fed6a254}\label{class_i_l_i9341__due_a219c1499ef2fb31a41b60121fed6a254}} 
+void {\bfseries draw\+Line\+By\+Angle} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t angle, uint16\+\_\+t start, uint16\+\_\+t length, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a24f4daa9ce626c67afac93b393b47387}\label{class_i_l_i9341__due_a24f4daa9ce626c67afac93b393b47387}} 
+void {\bfseries screenshot\+To\+Console} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac47aa3fd71d0ec02a90a3ed0386b5116}\label{class_i_l_i9341__due_ac47aa3fd71d0ec02a90a3ed0386b5116}} 
+void {\bfseries set\+Text\+Area} (\mbox{\hyperlink{structg_text_area}{g\+Text\+Area}} area)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aae9ff2aedf538d64f3479e8e78d418d3}\label{class_i_l_i9341__due_aae9ff2aedf538d64f3479e8e78d418d3}} 
+void {\bfseries set\+Text\+Area} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t w, int16\+\_\+t h)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a8e4add410f9e69dce682562c2025db14}\label{class_i_l_i9341__due_a8e4add410f9e69dce682562c2025db14}} 
+void {\bfseries set\+Text\+Area} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t columns, int16\+\_\+t rows, g\+Text\+Font font)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a01e4e346964a959a59bc04e2a81331cc}\label{class_i_l_i9341__due_a01e4e346964a959a59bc04e2a81331cc}} 
+\mbox{\hyperlink{structg_text_area}{g\+Text\+Area}} {\bfseries get\+Text\+Area} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a6d3ad2b502ca17f87ce7f441a8747bce}\label{class_i_l_i9341__due_a6d3ad2b502ca17f87ce7f441a8747bce}} 
+void {\bfseries clear\+Text\+Area} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a7221306796006638d706eaa86df1b36b}\label{class_i_l_i9341__due_a7221306796006638d706eaa86df1b36b}} 
+void {\bfseries clear\+Text\+Area} (\mbox{\hyperlink{structg_text_area}{g\+Text\+Area}} area)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a2a02b94b29883019ed77d77432dcc3b7}\label{class_i_l_i9341__due_a2a02b94b29883019ed77d77432dcc3b7}} 
+void {\bfseries clear\+Text\+Area} (uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a6f09610350c64af2a301867493a70e94}\label{class_i_l_i9341__due_a6f09610350c64af2a301867493a70e94}} 
+void {\bfseries clear\+Text\+Area} (\mbox{\hyperlink{structg_text_area}{g\+Text\+Area}} area, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aed272048eeba9b566e97d72118c0c84a}\label{class_i_l_i9341__due_aed272048eeba9b566e97d72118c0c84a}} 
+void {\bfseries set\+Font} (g\+Text\+Font font)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a7dada66da1644c593163de1312a93bcb}\label{class_i_l_i9341__due_a7dada66da1644c593163de1312a93bcb}} 
+g\+Text\+Font {\bfseries get\+Font} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a7e5584f6228a31777321f3dbb32b9943}\label{class_i_l_i9341__due_a7e5584f6228a31777321f3dbb32b9943}} 
+void {\bfseries set\+Text\+Color} (uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a988dfaf0dadd250647ff1611b958c0c7}\label{class_i_l_i9341__due_a988dfaf0dadd250647ff1611b958c0c7}} 
+void {\bfseries set\+Text\+Color} (uint8\+\_\+t R, uint8\+\_\+t G, uint8\+\_\+t B)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_adbef3902bff108d22a5f588c52a6c332}\label{class_i_l_i9341__due_adbef3902bff108d22a5f588c52a6c332}} 
+void {\bfseries set\+Text\+Color} (uint16\+\_\+t color, uint16\+\_\+t background\+Color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a83618ea01f1a7561bbf8e3fa76d4fd5c}\label{class_i_l_i9341__due_a83618ea01f1a7561bbf8e3fa76d4fd5c}} 
+void {\bfseries set\+Text\+Color} (uint8\+\_\+t R, uint8\+\_\+t G, uint8\+\_\+t B, uint8\+\_\+t bgR, uint8\+\_\+t bgG, uint8\+\_\+t bgB)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a77f625ce5f219582bf040882dc92103c}\label{class_i_l_i9341__due_a77f625ce5f219582bf040882dc92103c}} 
+uint16\+\_\+t {\bfseries get\+Text\+Color} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a26fc5709ccc2edd136947b81f7938b02}\label{class_i_l_i9341__due_a26fc5709ccc2edd136947b81f7938b02}} 
+uint16\+\_\+t {\bfseries get\+Text\+Background\+Color} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a15c9be40f459a61d146f1516cc83ec02}\label{class_i_l_i9341__due_a15c9be40f459a61d146f1516cc83ec02}} 
+void {\bfseries set\+Text\+Letter\+Spacing} (uint8\+\_\+t letter\+Spacing)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ab97c769e542dc66eddae3f5f81c44051}\label{class_i_l_i9341__due_ab97c769e542dc66eddae3f5f81c44051}} 
+uint8\+\_\+t {\bfseries get\+Text\+Letter\+Spacing} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a9ac785058de87a452bcc2f834f26a833}\label{class_i_l_i9341__due_a9ac785058de87a452bcc2f834f26a833}} 
+void {\bfseries set\+Text\+Line\+Spacing} (uint8\+\_\+t line\+Spacing)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a410173ae7fb70205c1b268a1a7bb4094}\label{class_i_l_i9341__due_a410173ae7fb70205c1b268a1a7bb4094}} 
+uint8\+\_\+t {\bfseries get\+Text\+Line\+Spacing} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac133bc388d802b908a576ccc0b132f08}\label{class_i_l_i9341__due_ac133bc388d802b908a576ccc0b132f08}} 
+void {\bfseries set\+Font\+Mode} (g\+Text\+Font\+Mode font\+Mode)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a9c053a2254df74ecd23b4b31f5430fde}\label{class_i_l_i9341__due_a9c053a2254df74ecd23b4b31f5430fde}} 
+g\+Text\+Font\+Mode {\bfseries get\+Font\+Mode} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_af17ae2fa1d7dc9b4f11b686b355a56e6}\label{class_i_l_i9341__due_af17ae2fa1d7dc9b4f11b686b355a56e6}} 
+void {\bfseries set\+Text\+Scale} (uint8\+\_\+t text\+Scale)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a8e9c61fb639b2917f00e7c26d5f2e08a}\label{class_i_l_i9341__due_a8e9c61fb639b2917f00e7c26d5f2e08a}} 
+uint8\+\_\+t {\bfseries get\+Text\+Scale} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a7f321d08e681354b4a9e6fd1cff27948}\label{class_i_l_i9341__due_a7f321d08e681354b4a9e6fd1cff27948}} 
+void {\bfseries print\+At} (const char $\ast$str, int16\+\_\+t x, int16\+\_\+t y)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a196c03829b5bf8e96e301af6584ff4f5}\label{class_i_l_i9341__due_a196c03829b5bf8e96e301af6584ff4f5}} 
+void {\bfseries print\+At} (const String \&str, int16\+\_\+t x, int16\+\_\+t y)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a9cf53b48be102d5ea28f20b59b0a3c5b}\label{class_i_l_i9341__due_a9cf53b48be102d5ea28f20b59b0a3c5b}} 
+void {\bfseries print\+At} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, int16\+\_\+t x, int16\+\_\+t y)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3a6b48230fff889949488340b61a4a8e}\label{class_i_l_i9341__due_a3a6b48230fff889949488340b61a4a8e}} 
+void {\bfseries print\+At} (const char $\ast$str, int16\+\_\+t x, int16\+\_\+t y, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ade66fd1efe7ba44025a5410246da4f2f}\label{class_i_l_i9341__due_ade66fd1efe7ba44025a5410246da4f2f}} 
+void {\bfseries print\+At} (const String \&str, int16\+\_\+t x, int16\+\_\+t y, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ace0b57c09e58d35feefff97503bb623e}\label{class_i_l_i9341__due_ace0b57c09e58d35feefff97503bb623e}} 
+void {\bfseries print\+At} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, int16\+\_\+t x, int16\+\_\+t y, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a4642aa3e4b2b8aa03276d944992a3df8}\label{class_i_l_i9341__due_a4642aa3e4b2b8aa03276d944992a3df8}} 
+void {\bfseries print\+At} (const char $\ast$str, int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a2f75a92c6c97ccbb01125f53e97822a3}\label{class_i_l_i9341__due_a2f75a92c6c97ccbb01125f53e97822a3}} 
+void {\bfseries print\+At} (const String \&str, int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a25826f873020fbc1714e0e3a4aec0ff2}\label{class_i_l_i9341__due_a25826f873020fbc1714e0e3a4aec0ff2}} 
+void {\bfseries print\+At} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a698e58e37305c720a555eb33e3a24372}\label{class_i_l_i9341__due_a698e58e37305c720a555eb33e3a24372}} 
+void {\bfseries print\+At\+Pivoted} (const char $\ast$str, int16\+\_\+t x, int16\+\_\+t y, g\+Text\+Pivot pivot)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a1e206fa87463838b3a932198e01fb622}\label{class_i_l_i9341__due_a1e206fa87463838b3a932198e01fb622}} 
+void {\bfseries print\+At\+Pivoted} (const String \&str, int16\+\_\+t x, int16\+\_\+t y, g\+Text\+Pivot pivot)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_afa1df449ba79deb0682dee577af2efbd}\label{class_i_l_i9341__due_afa1df449ba79deb0682dee577af2efbd}} 
+void {\bfseries print\+At\+Pivoted} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, int16\+\_\+t x, int16\+\_\+t y, g\+Text\+Pivot pivot)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a5351b38e4b3a6e33d3159e21ca7afa0e}\label{class_i_l_i9341__due_a5351b38e4b3a6e33d3159e21ca7afa0e}} 
+void {\bfseries print\+Aligned} (const char $\ast$str, g\+Text\+Align align)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a54f66c445faf04f633846b17b76cae89}\label{class_i_l_i9341__due_a54f66c445faf04f633846b17b76cae89}} 
+void {\bfseries print\+Aligned} (const String \&str, g\+Text\+Align align)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aa08aa856927e8bae1475f6d7543c03a7}\label{class_i_l_i9341__due_aa08aa856927e8bae1475f6d7543c03a7}} 
+void {\bfseries print\+Aligned} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a4ccd22ddd713f2c4091666305ced84f1}\label{class_i_l_i9341__due_a4ccd22ddd713f2c4091666305ced84f1}} 
+void {\bfseries print\+Aligned} (const char $\ast$str, g\+Text\+Align align, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_abb68676e3e27200899f05085f1c577f1}\label{class_i_l_i9341__due_abb68676e3e27200899f05085f1c577f1}} 
+void {\bfseries print\+Aligned} (const String \&str, g\+Text\+Align align, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a874055377ee45cb8c2c2b4289ebabebd}\label{class_i_l_i9341__due_a874055377ee45cb8c2c2b4289ebabebd}} 
+void {\bfseries print\+Aligned} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a1ddf8b89d162c9f2fdd853ee478ba107}\label{class_i_l_i9341__due_a1ddf8b89d162c9f2fdd853ee478ba107}} 
+void {\bfseries print\+Aligned} (const char $\ast$str, g\+Text\+Align align, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a9e5a33258bed67d642f2600f184ae12f}\label{class_i_l_i9341__due_a9e5a33258bed67d642f2600f184ae12f}} 
+void {\bfseries print\+Aligned} (const String \&str, g\+Text\+Align align, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a46f293fccfc6e9d006ffe7926833ffc9}\label{class_i_l_i9341__due_a46f293fccfc6e9d006ffe7926833ffc9}} 
+void {\bfseries print\+Aligned} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a964f2956de4d6cf151bd359b64bcb52d}\label{class_i_l_i9341__due_a964f2956de4d6cf151bd359b64bcb52d}} 
+void {\bfseries print\+Aligned\+Offseted} (const char $\ast$str, g\+Text\+Align align, int16\+\_\+t offsetX, int16\+\_\+t offsetY)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3ab4fe7ca93d6358e89114a8ef9aed6b}\label{class_i_l_i9341__due_a3ab4fe7ca93d6358e89114a8ef9aed6b}} 
+void {\bfseries print\+Aligned\+Offseted} (const String \&str, g\+Text\+Align align, int16\+\_\+t offsetX, int16\+\_\+t offsetY)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a58171c1e0c83e4aa79fe3ae66042a46e}\label{class_i_l_i9341__due_a58171c1e0c83e4aa79fe3ae66042a46e}} 
+void {\bfseries print\+Aligned\+Offseted} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, int16\+\_\+t offsetX, int16\+\_\+t offsetY)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3bf1626fe022bc2705570ec8dbef356e}\label{class_i_l_i9341__due_a3bf1626fe022bc2705570ec8dbef356e}} 
+void {\bfseries print\+Aligned\+Offseted} (const char $\ast$str, g\+Text\+Align align, int16\+\_\+t offsetX, int16\+\_\+t offsetY, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae32097b588b4e99edb82db4c9cdacd82}\label{class_i_l_i9341__due_ae32097b588b4e99edb82db4c9cdacd82}} 
+void {\bfseries print\+Aligned\+Offseted} (const String \&str, g\+Text\+Align align, int16\+\_\+t offsetX, int16\+\_\+t offsetY, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a181aeb6866addb51f12b6e6cbcf32101}\label{class_i_l_i9341__due_a181aeb6866addb51f12b6e6cbcf32101}} 
+void {\bfseries print\+Aligned\+Offseted} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, int16\+\_\+t offsetX, int16\+\_\+t offsetY, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a44d77f6afff2420c44d771847434110e}\label{class_i_l_i9341__due_a44d77f6afff2420c44d771847434110e}} 
+void {\bfseries print\+Aligned\+Offseted} (const char $\ast$str, g\+Text\+Align align, int16\+\_\+t offsetX, int16\+\_\+t offsetY, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a5653ed427f5c823e7415759d45a08a45}\label{class_i_l_i9341__due_a5653ed427f5c823e7415759d45a08a45}} 
+void {\bfseries print\+Aligned\+Offseted} (const String \&str, g\+Text\+Align align, int16\+\_\+t offsetX, int16\+\_\+t offsetY, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3ebeb9e40736ae55501c01b121607267}\label{class_i_l_i9341__due_a3ebeb9e40736ae55501c01b121607267}} 
+void {\bfseries print\+Aligned\+Offseted} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, int16\+\_\+t offsetX, int16\+\_\+t offsetY, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a9319cc9fbc326f0a1d54cfa16f3ea8a0}\label{class_i_l_i9341__due_a9319cc9fbc326f0a1d54cfa16f3ea8a0}} 
+void {\bfseries print\+Aligned\+Pivoted} (const char $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a5d2713874b3b2d52dd9956d856aa0e36}\label{class_i_l_i9341__due_a5d2713874b3b2d52dd9956d856aa0e36}} 
+void {\bfseries print\+Aligned\+Pivoted} (const String \&str, g\+Text\+Align align, g\+Text\+Pivot pivot)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aa79b36ff825201f9558856e03cf550aa}\label{class_i_l_i9341__due_aa79b36ff825201f9558856e03cf550aa}} 
+void {\bfseries print\+Aligned\+Pivoted} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae6c538ee86a54ff99e8a70402b93b9c5}\label{class_i_l_i9341__due_ae6c538ee86a54ff99e8a70402b93b9c5}} 
+void {\bfseries print\+Aligned\+Pivoted} (const char $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a860ddc3011fc5507cb6ef7b488860caa}\label{class_i_l_i9341__due_a860ddc3011fc5507cb6ef7b488860caa}} 
+void {\bfseries print\+Aligned\+Pivoted} (const String \&str, g\+Text\+Align align, g\+Text\+Pivot pivot, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a4f00b57fb42126b69ad21318f5e5a2f6}\label{class_i_l_i9341__due_a4f00b57fb42126b69ad21318f5e5a2f6}} 
+void {\bfseries print\+Aligned\+Pivoted} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a0fd8bf2a45ee3ab35b582120e1fbfad6}\label{class_i_l_i9341__due_a0fd8bf2a45ee3ab35b582120e1fbfad6}} 
+void {\bfseries print\+Aligned\+Pivoted} (const char $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae51634b046874e18cc9ea74af0c35ccd}\label{class_i_l_i9341__due_ae51634b046874e18cc9ea74af0c35ccd}} 
+void {\bfseries print\+Aligned\+Pivoted} (const String \&str, g\+Text\+Align align, g\+Text\+Pivot pivot, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3d002c89c4aea19e1f37d6cfa10a1d39}\label{class_i_l_i9341__due_a3d002c89c4aea19e1f37d6cfa10a1d39}} 
+void {\bfseries print\+Aligned\+Pivoted} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a7a414abc0b7199608170fb868dd2f2ac}\label{class_i_l_i9341__due_a7a414abc0b7199608170fb868dd2f2ac}} 
+void {\bfseries print\+Aligned\+Pivoted\+Offseted} (const char $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a21ad826f6436153bb43efecd4bd5c79f}\label{class_i_l_i9341__due_a21ad826f6436153bb43efecd4bd5c79f}} 
+void {\bfseries print\+Aligned\+Pivoted\+Offseted} (const String \&str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_acb21e53b392491aca0232888861841d5}\label{class_i_l_i9341__due_acb21e53b392491aca0232888861841d5}} 
+void {\bfseries print\+Aligned\+Pivoted\+Offseted} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a7f349b63be09163b5073d475810ddaaa}\label{class_i_l_i9341__due_a7f349b63be09163b5073d475810ddaaa}} 
+void {\bfseries print\+Aligned\+Pivoted\+Offseted} (const char $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a52b3374f608ef7dbe5d2659b7d19d3b9}\label{class_i_l_i9341__due_a52b3374f608ef7dbe5d2659b7d19d3b9}} 
+void {\bfseries print\+Aligned\+Pivoted\+Offseted} (const String \&str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a077aaf3f159627d248db3f8dd1d8c27e}\label{class_i_l_i9341__due_a077aaf3f159627d248db3f8dd1d8c27e}} 
+void {\bfseries print\+Aligned\+Pivoted\+Offseted} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY, g\+Text\+Erase\+Line erase\+Line)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_af78b97dc473ace8823520387465e1ed8}\label{class_i_l_i9341__due_af78b97dc473ace8823520387465e1ed8}} 
+void {\bfseries print\+Aligned\+Pivoted\+Offseted} (const char $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aecb4cb9542791ce8433e4e6f0c27139e}\label{class_i_l_i9341__due_aecb4cb9542791ce8433e4e6f0c27139e}} 
+void {\bfseries print\+Aligned\+Pivoted\+Offseted} (const String \&str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac154e7c391066015ba289c6923b87db3}\label{class_i_l_i9341__due_ac154e7c391066015ba289c6923b87db3}} 
+void {\bfseries print\+Aligned\+Pivoted\+Offseted} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY, uint16\+\_\+t pixels\+Cleared\+On\+Left, uint16\+\_\+t pixels\+Cleared\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a4a3cafac3bb5edfbdfb100b763247e6a}\label{class_i_l_i9341__due_a4a3cafac3bb5edfbdfb100b763247e6a}} 
+void {\bfseries cursor\+To} (uint8\+\_\+t column, uint8\+\_\+t row)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a61cfc806679f92c69dd917abe8af73ef}\label{class_i_l_i9341__due_a61cfc806679f92c69dd917abe8af73ef}} 
+void {\bfseries cursor\+To} (int8\+\_\+t column)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_afb898606705afd43b41383c30e2116c3}\label{class_i_l_i9341__due_afb898606705afd43b41383c30e2116c3}} 
+void {\bfseries cursor\+To\+XY} (int16\+\_\+t x, int16\+\_\+t y)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a1d2e0eabefe259b1d4d355621e023980}\label{class_i_l_i9341__due_a1d2e0eabefe259b1d4d355621e023980}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) uint8\+\_\+t get\+Font\+Height()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a31f85b08e8172418fe4d5e670a91eafa}\label{class_i_l_i9341__due_a31f85b08e8172418fe4d5e670a91eafa}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) static uint8\+\_\+t get\+Font\+Height(g\+Text\+Font font)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a2be0158576d91d5a486b8ca6d1d54a50}\label{class_i_l_i9341__due_a2be0158576d91d5a486b8ca6d1d54a50}} 
+uint8\+\_\+t {\bfseries readcommand8} (uint8\+\_\+t c)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a94c6512146ecbd1a1bc5325fadbf02e3}\label{class_i_l_i9341__due_a94c6512146ecbd1a1bc5325fadbf02e3}} 
+int16\+\_\+t {\bfseries width} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac457df9a2eec2984542b37decbda6341}\label{class_i_l_i9341__due_ac457df9a2eec2984542b37decbda6341}} 
+int16\+\_\+t {\bfseries height} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac9839d2cd19ee8f4d3c9c9b350d4c5a8}\label{class_i_l_i9341__due_ac9839d2cd19ee8f4d3c9c9b350d4c5a8}} 
+virtual size\+\_\+t {\bfseries write} (uint8\+\_\+t)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac00de79e165267e17dcb53e0f3e288f9}\label{class_i_l_i9341__due_ac00de79e165267e17dcb53e0f3e288f9}} 
+virtual size\+\_\+t {\bfseries print} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae26c8d88ac5d921deb22bbc28198db0b}\label{class_i_l_i9341__due_ae26c8d88ac5d921deb22bbc28198db0b}} 
+virtual size\+\_\+t {\bfseries print} (const String \&)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_afd9cd67183dafa21a433bf15adcd39be}\label{class_i_l_i9341__due_afd9cd67183dafa21a433bf15adcd39be}} 
+virtual size\+\_\+t {\bfseries print} (const char\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a44db7d6200ff3e681371ddc2f94f421d}\label{class_i_l_i9341__due_a44db7d6200ff3e681371ddc2f94f421d}} 
+virtual size\+\_\+t {\bfseries print} (char)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac7a7c8281c6b161965823f886e17f8bf}\label{class_i_l_i9341__due_ac7a7c8281c6b161965823f886e17f8bf}} 
+virtual size\+\_\+t {\bfseries print} (unsigned char, int=D\+EC)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a1733d7fa729c25caaf68d74b836999bb}\label{class_i_l_i9341__due_a1733d7fa729c25caaf68d74b836999bb}} 
+virtual size\+\_\+t {\bfseries print} (int, int=D\+EC)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a4c841ae8789cbbcc9f5af9f6497c8436}\label{class_i_l_i9341__due_a4c841ae8789cbbcc9f5af9f6497c8436}} 
+virtual size\+\_\+t {\bfseries print} (unsigned int, int=D\+EC)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a7c2f0e89f3fbc285c9daa1640fdb8244}\label{class_i_l_i9341__due_a7c2f0e89f3fbc285c9daa1640fdb8244}} 
+virtual size\+\_\+t {\bfseries print} (long, int=D\+EC)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_afd92aea497e8d0d8995cb5b15c318b3b}\label{class_i_l_i9341__due_afd92aea497e8d0d8995cb5b15c318b3b}} 
+virtual size\+\_\+t {\bfseries print} (unsigned long, int=D\+EC)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac321282b6d5a51afe7dee4cfa7818a4e}\label{class_i_l_i9341__due_ac321282b6d5a51afe7dee4cfa7818a4e}} 
+virtual size\+\_\+t {\bfseries print} (double, int=2)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a5b6207abce9bd9dc4c1c08ee1d27c5d5}\label{class_i_l_i9341__due_a5b6207abce9bd9dc4c1c08ee1d27c5d5}} 
+virtual size\+\_\+t {\bfseries print} (const Printable \&)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3620e2cbba742d4c11fd03e5d73b92e2}\label{class_i_l_i9341__due_a3620e2cbba742d4c11fd03e5d73b92e2}} 
+virtual size\+\_\+t {\bfseries println} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ad07e911334f7b5afb9e55c8f6d68576c}\label{class_i_l_i9341__due_ad07e911334f7b5afb9e55c8f6d68576c}} 
+virtual size\+\_\+t {\bfseries println} (const String \&s)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_af7e554272ec5975a763955dfc8204b95}\label{class_i_l_i9341__due_af7e554272ec5975a763955dfc8204b95}} 
+virtual size\+\_\+t {\bfseries println} (const char\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a79062aaaa657ff27b471df32e2671903}\label{class_i_l_i9341__due_a79062aaaa657ff27b471df32e2671903}} 
+virtual size\+\_\+t {\bfseries println} (char)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac80946308e705877d04adff7abe6a94e}\label{class_i_l_i9341__due_ac80946308e705877d04adff7abe6a94e}} 
+virtual size\+\_\+t {\bfseries println} (unsigned char, int=D\+EC)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a46096f4a852fd948402f1f482c219255}\label{class_i_l_i9341__due_a46096f4a852fd948402f1f482c219255}} 
+virtual size\+\_\+t {\bfseries println} (int, int=D\+EC)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a8198c45054ac8b00945b1be73cb31d65}\label{class_i_l_i9341__due_a8198c45054ac8b00945b1be73cb31d65}} 
+virtual size\+\_\+t {\bfseries println} (unsigned int, int=D\+EC)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_afef6e9513863365e59d1bb4bbc97ef31}\label{class_i_l_i9341__due_afef6e9513863365e59d1bb4bbc97ef31}} 
+virtual size\+\_\+t {\bfseries println} (long, int=D\+EC)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aff75c86f37d75e0ece3258ab571f7945}\label{class_i_l_i9341__due_aff75c86f37d75e0ece3258ab571f7945}} 
+virtual size\+\_\+t {\bfseries println} (unsigned long, int=D\+EC)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ad41c43188bce717d02094801d8b7ffe7}\label{class_i_l_i9341__due_ad41c43188bce717d02094801d8b7ffe7}} 
+virtual size\+\_\+t {\bfseries println} (double, int=2)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ad4c4fb61e4fd999bb6b8aff2e23c52bc}\label{class_i_l_i9341__due_ad4c4fb61e4fd999bb6b8aff2e23c52bc}} 
+virtual size\+\_\+t {\bfseries println} (const Printable \&)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_acae769eab893a2a8b3b8991400af2d62}\label{class_i_l_i9341__due_acae769eab893a2a8b3b8991400af2d62}} 
+virtual size\+\_\+t {\bfseries println} (void)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a905d2625506a99f7ef44dc157699dbbe}\label{class_i_l_i9341__due_a905d2625506a99f7ef44dc157699dbbe}} 
+uint16\+\_\+t {\bfseries get\+Char\+Width} (uint8\+\_\+t c)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ad2d90d32cc38389d00225ac418277011}\label{class_i_l_i9341__due_ad2d90d32cc38389d00225ac418277011}} 
+uint16\+\_\+t {\bfseries get\+String\+Width} (const char $\ast$str)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae2d1602f9ed9423c85c9afa3d1d823a4}\label{class_i_l_i9341__due_ae2d1602f9ed9423c85c9afa3d1d823a4}} 
+uint16\+\_\+t {\bfseries get\+String\+Width} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a523ffa214c4eef77d39da95a89ab9415}\label{class_i_l_i9341__due_a523ffa214c4eef77d39da95a89ab9415}} 
+uint16\+\_\+t {\bfseries get\+String\+Width} (const String \&str)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a6c48d4682a5660c589867f1c52c0eb6f}\label{class_i_l_i9341__due_a6c48d4682a5660c589867f1c52c0eb6f}} 
+void {\bfseries erase\+Text\+Line} (uint16\+\_\+t color, g\+Text\+Erase\+Line type=g\+Text\+Erase\+To\+E\+OL)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ad0952929bb6544c6a5467bcedd077f2c}\label{class_i_l_i9341__due_ad0952929bb6544c6a5467bcedd077f2c}} 
+void {\bfseries erase\+Text\+Line} (uint16\+\_\+t color, uint8\+\_\+t row)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3f139cb3854da0a3643082515cf13b40}\label{class_i_l_i9341__due_a3f139cb3854da0a3643082515cf13b40}} 
+int16\+\_\+t {\bfseries get\+CursorX} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a2ff4df9c3ae8f26960dbb5c54b136079}\label{class_i_l_i9341__due_a2ff4df9c3ae8f26960dbb5c54b136079}} 
+int16\+\_\+t {\bfseries get\+CursorY} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_af24e41a27174170377cc7bf284b71e0e}\label{class_i_l_i9341__due_af24e41a27174170377cc7bf284b71e0e}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void fill\+Arc(uint16\+\_\+t x
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac4626178dc1c336aceaed42d49c30188}\label{class_i_l_i9341__due_ac4626178dc1c336aceaed42d49c30188}} 
+{\bfseries if} (start==0 \&\&end==\+\_\+arc\+Angle\+Max) fill\+Arc\+Offsetted(x
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a527601bb6aace82ea3878275f57a153b}\label{class_i_l_i9341__due_a527601bb6aace82ea3878275f57a153b}} 
+else {\bfseries fill\+Arc\+Offsetted} (x, y, radius, thickness, start+(\+\_\+angle\+Offset/(float) 360) $\ast$\+\_\+arc\+Angle\+Max, end+(\+\_\+angle\+Offset/(float) 360) $\ast$\+\_\+arc\+Angle\+Max, color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_afd2e06f570a468c8738b93485fe699c3}\label{class_i_l_i9341__due_afd2e06f570a468c8738b93485fe699c3}} 
+{\bfseries end\+Transaction} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a4a2dc4658fdbbc3b74ad131d32dd4a90}\label{class_i_l_i9341__due_a4a2dc4658fdbbc3b74ad131d32dd4a90}} 
+float {\bfseries cos\+Degrees} (float angle)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a309afc3942e08d0b98487fa081689117}\label{class_i_l_i9341__due_a309afc3942e08d0b98487fa081689117}} 
+float {\bfseries sin\+Degrees} (float angle)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a912c3fa451e87c6ded5e8255e10ea502}\label{class_i_l_i9341__due_a912c3fa451e87c6ded5e8255e10ea502}} 
+static uint16\+\_\+t {\bfseries color565} (uint8\+\_\+t r, uint8\+\_\+t g, uint8\+\_\+t b)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aeb7960799cde2451aa95c9f25282ad15}\label{class_i_l_i9341__due_aeb7960799cde2451aa95c9f25282ad15}} 
+static uint16\+\_\+t {\bfseries get\+Char\+Width} (uint8\+\_\+t c, g\+Text\+Font font, uint8\+\_\+t text\+Scale)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_afc395b98720711bf013d6164838aca09}\label{class_i_l_i9341__due_afc395b98720711bf013d6164838aca09}} 
+static uint16\+\_\+t {\bfseries get\+String\+Width} (const char $\ast$str, g\+Text\+Font font, uint8\+\_\+t letter\+Spacing, uint8\+\_\+t text\+Scale)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a1fe459683035b784bee17e418e71194a}\label{class_i_l_i9341__due_a1fe459683035b784bee17e418e71194a}} 
+uint16\+\_\+t {\bfseries y}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a7e57f65f9e38295f35e779232c9afbc0}\label{class_i_l_i9341__due_a7e57f65f9e38295f35e779232c9afbc0}} 
+uint16\+\_\+t uint16\+\_\+t {\bfseries radius}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_af1d7687b0167ed2585e804d52fb5a2b7}\label{class_i_l_i9341__due_af1d7687b0167ed2585e804d52fb5a2b7}} 
+uint16\+\_\+t uint16\+\_\+t uint16\+\_\+t {\bfseries thickness}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a4fc716b65ee21cde3a2ad00d7157dc92}\label{class_i_l_i9341__due_a4fc716b65ee21cde3a2ad00d7157dc92}} 
+uint16\+\_\+t uint16\+\_\+t uint16\+\_\+t float {\bfseries start}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3b6e2f34fa82e2a05f0f38c898900d6a}\label{class_i_l_i9341__due_a3b6e2f34fa82e2a05f0f38c898900d6a}} 
+uint16\+\_\+t uint16\+\_\+t uint16\+\_\+t float float {\bfseries end}
+\item 
+uint16\+\_\+t uint16\+\_\+t uint16\+\_\+t float float uint16\+\_\+t {\bfseries color}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a57bce97ca435955ccda346b77535c3ce}\label{class_i_l_i9341__due_a57bce97ca435955ccda346b77535c3ce}} 
+{\bfseries y}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a22bc76f27cd87a082960fdbed42d81a7}\label{class_i_l_i9341__due_a22bc76f27cd87a082960fdbed42d81a7}} 
+{\bfseries radius}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a7443963501cff27e6755d89033cde3d9}\label{class_i_l_i9341__due_a7443963501cff27e6755d89033cde3d9}} 
+{\bfseries thickness}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_afcb5cd6743b15818ba3e61f3199da429}\label{class_i_l_i9341__due_afcb5cd6743b15818ba3e61f3199da429}} 
+{\bfseries \+\_\+arc\+Angle\+Max}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a02b3aa53fc5e2c1f052156384dc6376b}\label{class_i_l_i9341__due_a02b3aa53fc5e2c1f052156384dc6376b}} 
+{\bfseries color}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a58cd315433074fd3d60fa91cd70e3a6f}\label{class_i_l_i9341__due_a58cd315433074fd3d60fa91cd70e3a6f}} 
+void {\bfseries fill\+Arc\+Offsetted} (uint16\+\_\+t cx, uint16\+\_\+t cy, uint16\+\_\+t radius, uint16\+\_\+t thickness, float start\+Angle, float end\+Angle, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aad58de6cfc9b220bf3f96ad43c305b21}\label{class_i_l_i9341__due_aad58de6cfc9b220bf3f96ad43c305b21}} 
+void {\bfseries draw\+Fast\+V\+Line\+\_\+cont\+\_\+no\+Fill} (int16\+\_\+t x, int16\+\_\+t y, int16\+\_\+t h, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a889c684a70796838b2ff1e533ef76cbf}\label{class_i_l_i9341__due_a889c684a70796838b2ff1e533ef76cbf}} 
+void {\bfseries draw\+Fast\+V\+Line\+\_\+no\+Trans} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t h, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_abf95fe447164078e4c4c6a808af89b6c}\label{class_i_l_i9341__due_abf95fe447164078e4c4c6a808af89b6c}} 
+void {\bfseries draw\+Fast\+H\+Line\+\_\+no\+Trans} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a52396548863d0fcf187ed0c3a7b127e6}\label{class_i_l_i9341__due_a52396548863d0fcf187ed0c3a7b127e6}} 
+void {\bfseries draw\+Line\+\_\+no\+Trans} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t x1, int16\+\_\+t y1, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae56fcec365abfa0608c9829a240ec2ad}\label{class_i_l_i9341__due_ae56fcec365abfa0608c9829a240ec2ad}} 
+void {\bfseries print\+Hex8} (uint8\+\_\+t $\ast$data, uint8\+\_\+t length)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a0c72816e1b100868fd24a5ef3105b72d}\label{class_i_l_i9341__due_a0c72816e1b100868fd24a5ef3105b72d}} 
+void {\bfseries print\+Hex16} (uint16\+\_\+t $\ast$data, uint8\+\_\+t length)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a26deab22031b8c150b5021589f36cf87}\label{class_i_l_i9341__due_a26deab22031b8c150b5021589f36cf87}} 
+void {\bfseries print\+Hex32} (uint32\+\_\+t $\ast$data, uint8\+\_\+t length)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_af4ae320bf1a62f7e2ffc98992ddce11c}\label{class_i_l_i9341__due_af4ae320bf1a62f7e2ffc98992ddce11c}} 
+void {\bfseries fill\+Rect\+\_\+no\+Trans} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aa36a6ae6fb9f29c70d89418c57df58fb}\label{class_i_l_i9341__due_aa36a6ae6fb9f29c70d89418c57df58fb}} 
+void {\bfseries fill\+Rect\+With\+Shader\+\_\+no\+Trans} (int16\+\_\+t x, int16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h, uint16\+\_\+t($\ast$fill\+Shader)(uint16\+\_\+t rx, uint16\+\_\+t ry))
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae458fe9476157f8c71097e427db4e114}\label{class_i_l_i9341__due_ae458fe9476157f8c71097e427db4e114}} 
+void {\bfseries draw\+Circle\+Helper} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint8\+\_\+t cornername, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a899fecf0e1f2a36dff599a2624588b95}\label{class_i_l_i9341__due_a899fecf0e1f2a36dff599a2624588b95}} 
+void {\bfseries fill\+Circle\+Helper} (int16\+\_\+t x0, int16\+\_\+t y0, int16\+\_\+t r, uint8\+\_\+t cornername, int16\+\_\+t delta, uint16\+\_\+t color)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae2bf4ae14dbd6d109156a1ff47f42be4}\label{class_i_l_i9341__due_ae2bf4ae14dbd6d109156a1ff47f42be4}} 
+void {\bfseries push\+Colors\+\_\+no\+Trans\+\_\+no\+CS} (const uint16\+\_\+t $\ast$colors, uint16\+\_\+t offset, uint32\+\_\+t len)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aea77e6be85b0889ba6ec5030a4ef06f4}\label{class_i_l_i9341__due_aea77e6be85b0889ba6ec5030a4ef06f4}} 
+void {\bfseries special\+Char} (uint8\+\_\+t c)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a91c7da56723bd7304715bfb1069a7b7b}\label{class_i_l_i9341__due_a91c7da56723bd7304715bfb1069a7b7b}} 
+void {\bfseries draw\+Solid\+Char} (char c, uint16\+\_\+t index, uint16\+\_\+t char\+Width, uint16\+\_\+t char\+Height)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a198c3094d587f8266fead392d833ff72}\label{class_i_l_i9341__due_a198c3094d587f8266fead392d833ff72}} 
+void {\bfseries draw\+Transparent\+Char} (char c, uint16\+\_\+t index, uint16\+\_\+t char\+Width, uint16\+\_\+t char\+Height)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a41270b8ea6757fd0914288ea9bb8d40a}\label{class_i_l_i9341__due_a41270b8ea6757fd0914288ea9bb8d40a}} 
+void {\bfseries apply\+Pivot} (const char $\ast$str, g\+Text\+Pivot pivot, g\+Text\+Align align)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae540c7c359e13ffec4635b6004d85e17}\label{class_i_l_i9341__due_ae540c7c359e13ffec4635b6004d85e17}} 
+void {\bfseries apply\+Pivot} (const String \&str, g\+Text\+Pivot pivot, g\+Text\+Align align)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a6843a73124479a7db46515306abdb1b9}\label{class_i_l_i9341__due_a6843a73124479a7db46515306abdb1b9}} 
+void {\bfseries apply\+Pivot} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Pivot pivot, g\+Text\+Align align)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_abefb67fd7e81e05ae57c89184a635466}\label{class_i_l_i9341__due_abefb67fd7e81e05ae57c89184a635466}} 
+void {\bfseries apply\+Align\+Offset} (g\+Text\+Align align, int16\+\_\+t offsetX, int16\+\_\+t offsetY)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a72dcd48b4c853b337c6146d81390a67a}\label{class_i_l_i9341__due_a72dcd48b4c853b337c6146d81390a67a}} 
+void {\bfseries apply\+Align\+Pivot\+Offset} (const char $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_abf55ee42a0a287edc400baa1f706d367}\label{class_i_l_i9341__due_abf55ee42a0a287edc400baa1f706d367}} 
+void {\bfseries apply\+Align\+Pivot\+Offset} (const String \&str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_adb357a58e7ad64d7e63dc573e13c93ff}\label{class_i_l_i9341__due_adb357a58e7ad64d7e63dc573e13c93ff}} 
+void {\bfseries apply\+Align\+Pivot\+Offset} (const \+\_\+\+\_\+\+Flash\+String\+Helper $\ast$str, g\+Text\+Align align, g\+Text\+Pivot pivot, int16\+\_\+t offsetX, int16\+\_\+t offsetY)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aff8c731b20f7280e3a824b87f3ddde45}\label{class_i_l_i9341__due_aff8c731b20f7280e3a824b87f3ddde45}} 
+void {\bfseries clear\+Pixels\+On\+Left} (uint16\+\_\+t pixels\+To\+Clear\+On\+Left)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a92e22840c7e43b4a0d12646c4e54c38e}\label{class_i_l_i9341__due_a92e22840c7e43b4a0d12646c4e54c38e}} 
+void {\bfseries clear\+Pixels\+On\+Right} (uint16\+\_\+t pixels\+To\+Clear\+On\+Right)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a5ea121fda301a3bae3ca9f5f6aefc3bb}\label{class_i_l_i9341__due_a5ea121fda301a3bae3ca9f5f6aefc3bb}} 
+bool {\bfseries pin\+Is\+Chip\+Select} (uint8\+\_\+t cs)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ad84f48a23f36bb73ce3678c3149906a3}\label{class_i_l_i9341__due_ad84f48a23f36bb73ce3678c3149906a3}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) uint16\+\_\+t scaled\+Font\+Height()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a7ce78244a6e81e6326695d4d9e39797c}\label{class_i_l_i9341__due_a7ce78244a6e81e6326695d4d9e39797c}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void begin\+Transaction()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a57b0ec93698016a8c007130b98095d17}\label{class_i_l_i9341__due_a57b0ec93698016a8c007130b98095d17}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void end\+Transaction()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aed18e22117570bd86217428befa1b22c}\label{class_i_l_i9341__due_aed18e22117570bd86217428befa1b22c}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void spiwrite(uint8\+\_\+t c)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3914e91c2d5ebe1960646e1da79caccb}\label{class_i_l_i9341__due_a3914e91c2d5ebe1960646e1da79caccb}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void spiwrite16(uint16\+\_\+t d)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ad8a103788be67c2f433215db7c2a2337}\label{class_i_l_i9341__due_ad8a103788be67c2f433215db7c2a2337}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void write8\+\_\+cont(uint8\+\_\+t c)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aaf7f48a3ac6f47a5705b4a91a4cf7889}\label{class_i_l_i9341__due_aaf7f48a3ac6f47a5705b4a91a4cf7889}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void write8\+\_\+last(uint8\+\_\+t c)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae1f9e475ad8181ee9085c42f03a3138d}\label{class_i_l_i9341__due_ae1f9e475ad8181ee9085c42f03a3138d}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void write16\+\_\+cont(uint16\+\_\+t d)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a08c5618fae3e05bd63d1a30e6729d42d}\label{class_i_l_i9341__due_a08c5618fae3e05bd63d1a30e6729d42d}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void write16\+\_\+last(uint16\+\_\+t d)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ac44d59a9439bd441b2fe809cba3d71ed}\label{class_i_l_i9341__due_ac44d59a9439bd441b2fe809cba3d71ed}} 
+void {\bfseries set\+Addr\+\_\+cont} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h) \+\_\+\+\_\+attribute\+\_\+\+\_\+((always\+\_\+inline))
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a01500391944f831886412c8df09bed82}\label{class_i_l_i9341__due_a01500391944f831886412c8df09bed82}} 
+void {\bfseries set\+Addr\+And\+R\+W\+\_\+cont} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t w, uint16\+\_\+t h)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a5026bf1d9041cd2c9b7a2f2cb7ca8e5a}\label{class_i_l_i9341__due_a5026bf1d9041cd2c9b7a2f2cb7ca8e5a}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void set\+Addr\+And\+R\+W\+\_\+cont\+\_\+inline(uint16\+\_\+t x
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aa63d86236587676c9cc643ee069feec2}\label{class_i_l_i9341__due_aa63d86236587676c9cc643ee069feec2}} 
+{\bfseries write8\+\_\+cont} (I\+L\+I9341\+\_\+\+C\+A\+S\+ET)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a32baecf5184c2a8556c3ed46fcfe2091}\label{class_i_l_i9341__due_a32baecf5184c2a8556c3ed46fcfe2091}} 
+{\bfseries set\+D\+C\+For\+Data} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a9caaf4bbf1aeea31c9bd84148f15ab4d}\label{class_i_l_i9341__due_a9caaf4bbf1aeea31c9bd84148f15ab4d}} 
+{\bfseries write16\+\_\+cont} (x)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a79324409f3318e00f2f03e0e0cb4add9}\label{class_i_l_i9341__due_a79324409f3318e00f2f03e0e0cb4add9}} 
+{\bfseries write16\+\_\+cont} (x+w-\/1)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a1faa6ba5dbc2af6873f8bae4dc06d9f9}\label{class_i_l_i9341__due_a1faa6ba5dbc2af6873f8bae4dc06d9f9}} 
+{\bfseries set\+D\+C\+For\+Command} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a5862b89ecbb78b222cf43536b17d510a}\label{class_i_l_i9341__due_a5862b89ecbb78b222cf43536b17d510a}} 
+{\bfseries write8\+\_\+cont} (I\+L\+I9341\+\_\+\+P\+A\+S\+ET)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a32baecf5184c2a8556c3ed46fcfe2091}\label{class_i_l_i9341__due_a32baecf5184c2a8556c3ed46fcfe2091}} 
+{\bfseries set\+D\+C\+For\+Data} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a04e4b7536ed7ec397960575b3550931f}\label{class_i_l_i9341__due_a04e4b7536ed7ec397960575b3550931f}} 
+{\bfseries write16\+\_\+cont} (y)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a053e4bee31b7085e72611a021b51e077}\label{class_i_l_i9341__due_a053e4bee31b7085e72611a021b51e077}} 
+{\bfseries write16\+\_\+cont} (y+h-\/1)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a1faa6ba5dbc2af6873f8bae4dc06d9f9}\label{class_i_l_i9341__due_a1faa6ba5dbc2af6873f8bae4dc06d9f9}} 
+{\bfseries set\+D\+C\+For\+Command} ()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a63bafada6d435d0c1b76e3deaa501dcd}\label{class_i_l_i9341__due_a63bafada6d435d0c1b76e3deaa501dcd}} 
+{\bfseries write8\+\_\+cont} (I\+L\+I9341\+\_\+\+R\+A\+M\+WR)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aa15a3d13dbbd4cecdb7f8ed16e672895}\label{class_i_l_i9341__due_aa15a3d13dbbd4cecdb7f8ed16e672895}} 
+void {\bfseries set\+Column\+Addr} (uint16\+\_\+t x, uint16\+\_\+t w)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aa0b575d98e218eae02334eded0116049}\label{class_i_l_i9341__due_aa0b575d98e218eae02334eded0116049}} 
+void {\bfseries set\+Row\+Addr} (uint16\+\_\+t y, uint16\+\_\+t h)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aa0a2a0f6dbeb97927da9a9c663e883e3}\label{class_i_l_i9341__due_aa0a2a0f6dbeb97927da9a9c663e883e3}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void set\+RW()
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae4e13ab120939dce14b854584bbe69bd}\label{class_i_l_i9341__due_ae4e13ab120939dce14b854584bbe69bd}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void writecommand\+\_\+cont(uint8\+\_\+t c)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3bd5900362fe99234f57ee7d2a537ef3}\label{class_i_l_i9341__due_a3bd5900362fe99234f57ee7d2a537ef3}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void writecommand\+\_\+last(uint8\+\_\+t c)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae7efaa364c1955f6c813668e194a9464}\label{class_i_l_i9341__due_ae7efaa364c1955f6c813668e194a9464}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void writedata8\+\_\+cont(uint8\+\_\+t c)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a82d7c7d22f46aff34895fa9b44f25569}\label{class_i_l_i9341__due_a82d7c7d22f46aff34895fa9b44f25569}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void writedata8\+\_\+last(uint8\+\_\+t c)
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a065c463bd0cf4ee928f0ac9572f39f77}\label{class_i_l_i9341__due_a065c463bd0cf4ee928f0ac9572f39f77}} 
+{\bfseries \+\_\+\+\_\+attribute\+\_\+\+\_\+} ((always\+\_\+inline)) void write\+\_\+cont(uint16\+\_\+t $\ast$buf
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_afc32f506b1c59d1849ea1387e9d17aac}\label{class_i_l_i9341__due_afc32f506b1c59d1849ea1387e9d17aac}} 
+int16\+\_\+t {\bfseries \+\_\+width}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aa82c9852a8324a599037d12eaba87bc3}\label{class_i_l_i9341__due_aa82c9852a8324a599037d12eaba87bc3}} 
+int16\+\_\+t {\bfseries \+\_\+height}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_afc679c9aa2161fdc797157ccbeb2468b}\label{class_i_l_i9341__due_afc679c9aa2161fdc797157ccbeb2468b}} 
+ili\+Rotation {\bfseries \+\_\+rotation}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_adf53d5acf662a9dcb46c4cacaa5a588a}\label{class_i_l_i9341__due_adf53d5acf662a9dcb46c4cacaa5a588a}} 
+float {\bfseries \+\_\+arc\+Angle\+Max}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a4c5c37fdfc26ed66c568bea48f74e806}\label{class_i_l_i9341__due_a4c5c37fdfc26ed66c568bea48f74e806}} 
+int16\+\_\+t {\bfseries \+\_\+angle\+Offset}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a2afc5739ef866d98d0adca08ae80e2a0}\label{class_i_l_i9341__due_a2afc5739ef866d98d0adca08ae80e2a0}} 
+uint8\+\_\+t {\bfseries \+\_\+rst}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ae3c015313853a07fe5797231c9326ea1}\label{class_i_l_i9341__due_ae3c015313853a07fe5797231c9326ea1}} 
+uint8\+\_\+t {\bfseries \+\_\+hi\+Byte}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ad33ac8294072e24ccdcb530add4a9280}\label{class_i_l_i9341__due_ad33ac8294072e24ccdcb530add4a9280}} 
+uint8\+\_\+t {\bfseries \+\_\+lo\+Byte}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aaba2f5108f0ac33832d9c62208f2f35b}\label{class_i_l_i9341__due_aaba2f5108f0ac33832d9c62208f2f35b}} 
+bool {\bfseries \+\_\+is\+Idle}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a2daa5641c15a64d41c15a271005ef14a}\label{class_i_l_i9341__due_a2daa5641c15a64d41c15a271005ef14a}} 
+bool {\bfseries \+\_\+is\+In\+Sleep}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a6f8603b16341aa514aa3477c6d70cc5e}\label{class_i_l_i9341__due_a6f8603b16341aa514aa3477c6d70cc5e}} 
+uint16\+\_\+t {\bfseries \+\_\+color}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a049dbff9086c19f62be64fa413bfc7d9}\label{class_i_l_i9341__due_a049dbff9086c19f62be64fa413bfc7d9}} 
+uint16\+\_\+t {\bfseries \+\_\+scanline16} \mbox{[}S\+C\+A\+N\+L\+I\+N\+E\+\_\+\+P\+I\+X\+E\+L\+\_\+\+C\+O\+U\+NT\mbox{]}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a641731dd7f5217fe5b939ebc45643c81}\label{class_i_l_i9341__due_a641731dd7f5217fe5b939ebc45643c81}} 
+uint8\+\_\+t {\bfseries \+\_\+spi\+Clk\+Divider}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a21cdfa44d33e47977859097d92b3ad1b}\label{class_i_l_i9341__due_a21cdfa44d33e47977859097d92b3ad1b}} 
+volatile uint8\+\_\+t $\ast$ {\bfseries \+\_\+dcport}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a25484ccf7eae5c9643f1d7c5e7d3b8b5}\label{class_i_l_i9341__due_a25484ccf7eae5c9643f1d7c5e7d3b8b5}} 
+volatile uint8\+\_\+t $\ast$ {\bfseries \+\_\+csport}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a682797aa4ba82720109fc31b0ade88c4}\label{class_i_l_i9341__due_a682797aa4ba82720109fc31b0ade88c4}} 
+volatile uint8\+\_\+t {\bfseries \+\_\+dcport2}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aa3564f38337e80ab72154604b21ef8e9}\label{class_i_l_i9341__due_aa3564f38337e80ab72154604b21ef8e9}} 
+uint8\+\_\+t {\bfseries \+\_\+cs}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a0902bb2dbfe48f9c7364cfc458d48208}\label{class_i_l_i9341__due_a0902bb2dbfe48f9c7364cfc458d48208}} 
+uint8\+\_\+t {\bfseries \+\_\+dc}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a3bcf004a62b3f49de02314ddbb117ded}\label{class_i_l_i9341__due_a3bcf004a62b3f49de02314ddbb117ded}} 
+uint8\+\_\+t {\bfseries \+\_\+cspinmask}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aa00fca0d60839b18b958dd51c426314f}\label{class_i_l_i9341__due_aa00fca0d60839b18b958dd51c426314f}} 
+uint8\+\_\+t {\bfseries \+\_\+dcpinmask}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a0a451483b90f0e11a20033d5d0428e51}\label{class_i_l_i9341__due_a0a451483b90f0e11a20033d5d0428e51}} 
+uint8\+\_\+t {\bfseries \+\_\+backup\+S\+P\+CR}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_abb920ed140633aa4437ed1531660d438}\label{class_i_l_i9341__due_abb920ed140633aa4437ed1531660d438}} 
+g\+Text\+Font\+Mode {\bfseries \+\_\+font\+Mode}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aa1d65f392087cac7950a7a85db4d4dc3}\label{class_i_l_i9341__due_aa1d65f392087cac7950a7a85db4d4dc3}} 
+uint16\+\_\+t {\bfseries \+\_\+font\+Color}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a0dc71b68b819dbd44607e487f3c0dcea}\label{class_i_l_i9341__due_a0dc71b68b819dbd44607e487f3c0dcea}} 
+uint16\+\_\+t {\bfseries \+\_\+font\+Bg\+Color}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ad9aba5a19a6ae375a35cce3213ef2eee}\label{class_i_l_i9341__due_ad9aba5a19a6ae375a35cce3213ef2eee}} 
+g\+Text\+Font {\bfseries \+\_\+font}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ab343c4b39d8f1d1ec9728a643eec25c7}\label{class_i_l_i9341__due_ab343c4b39d8f1d1ec9728a643eec25c7}} 
+\mbox{\hyperlink{structg_text_area}{g\+Text\+Area}} {\bfseries \+\_\+area}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_aebf2174b8be34d7b2ea31ac4fdefa895}\label{class_i_l_i9341__due_aebf2174b8be34d7b2ea31ac4fdefa895}} 
+int16\+\_\+t {\bfseries \+\_\+x}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a691fd351bc9e6aab78ac0a7424ac504b}\label{class_i_l_i9341__due_a691fd351bc9e6aab78ac0a7424ac504b}} 
+int16\+\_\+t {\bfseries \+\_\+x\+Start}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a0a66f1e927038c5dcc8c786c04ba8c90}\label{class_i_l_i9341__due_a0a66f1e927038c5dcc8c786c04ba8c90}} 
+int16\+\_\+t {\bfseries \+\_\+y}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a848649ce10b818f29ff93d51d00373be}\label{class_i_l_i9341__due_a848649ce10b818f29ff93d51d00373be}} 
+int16\+\_\+t {\bfseries \+\_\+y\+Start}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_ab53970d20547605eae0da166c6939ca6}\label{class_i_l_i9341__due_ab53970d20547605eae0da166c6939ca6}} 
+uint8\+\_\+t {\bfseries \+\_\+letter\+Spacing}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a5ed58509ea2d0000f6304b8e454efc7a}\label{class_i_l_i9341__due_a5ed58509ea2d0000f6304b8e454efc7a}} 
+uint8\+\_\+t {\bfseries \+\_\+line\+Spacing}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_afd32cbc9950fabb13f2c3606a3ae971c}\label{class_i_l_i9341__due_afd32cbc9950fabb13f2c3606a3ae971c}} 
+bool {\bfseries \+\_\+is\+First\+Char}
+\item 
+\mbox{\Hypertarget{class_i_l_i9341__due_a0fdcc4e350e60d0613492daba1dd7cae}\label{class_i_l_i9341__due_a0fdcc4e350e60d0613492daba1dd7cae}} 
+uint16\+\_\+t uint16\+\_\+t {\bfseries w}
+\item 
+uint16\+\_\+t uint16\+\_\+t uint16\+\_\+t {\bfseries h}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_i_l_i9341__due_af4298d4ff73d571369c1c4980e256d59}\label{class_i_l_i9341__due_af4298d4ff73d571369c1c4980e256d59}} 
+\index{ILI9341\_due@{ILI9341\_due}!color@{color}}
+\index{color@{color}!ILI9341\_due@{ILI9341\_due}}
+\doxysubsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily uint16\+\_\+t uint16\+\_\+t uint16\+\_\+t float float uint16\+\_\+t I\+L\+I9341\+\_\+due\+::color}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{        beginTransaction()}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_i_l_i9341__due_add3427972400ef54fdf784a2b0e78e55}\label{class_i_l_i9341__due_add3427972400ef54fdf784a2b0e78e55}} 
+\index{ILI9341\_due@{ILI9341\_due}!h@{h}}
+\index{h@{h}!ILI9341\_due@{ILI9341\_due}}
+\doxysubsubsection{\texorpdfstring{h}{h}}
+{\footnotesize\ttfamily uint16\+\_\+t uint16\+\_\+t uint16\+\_\+t I\+L\+I9341\+\_\+due\+::h\hspace{0.3cm}{\ttfamily [protected]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{        setDCForCommand()}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/I\+L\+I9341\+\_\+due.\+h\item 
+src/I\+L\+I9341\+\_\+due.\+cpp\end{DoxyCompactItemize}

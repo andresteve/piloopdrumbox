@@ -1,0 +1,116 @@
+\hypertarget{class_t_f_t}{}\doxysection{T\+FT Class Reference}
+\label{class_t_f_t}\index{TFT@{TFT}}
+
+
+This class control a \mbox{\hyperlink{class_t_f_t}{T\+FT}} screeen based on I\+L\+I9341 chip. It include an incremental encoder to handle a menu.  
+
+
+
+
+{\ttfamily \#include $<$T\+F\+T.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_f_t_a1edafd09f201f2092315903931401df3}{T\+FT}} (uint8\+\_\+t CS, uint8\+\_\+t DC, uint8\+\_\+t R\+ST, \mbox{\hyperlink{class_encoder}{Encoder}} $\ast$enc)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{class_t_f_t}{T\+FT}} object. This class use \mbox{\hyperlink{class_i_l_i9341__due}{I\+L\+I9341\+\_\+due}} library to control the \mbox{\hyperlink{class_t_f_t}{T\+FT}} screen. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_f_t_ac2bebd770394fa623e007fb463323aef}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initialize \mbox{\hyperlink{class_t_f_t}{T\+FT}} and menu encoder. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_f_t_a5914daceddfd8a717042b351bc338c7a}{debug\+Message}} (String pt1, String pt2, String pt3)
+\begin{DoxyCompactList}\small\item\em Print a general message on \mbox{\hyperlink{class_t_f_t}{T\+FT}} display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_f_t_a180ec9f3a734b084eef3b721b8f38067}{draw\+Instrument}} (uint8\+\_\+t inst\+Num)
+\begin{DoxyCompactList}\small\item\em Draw instrument on display. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_t_f_t_a56c15a26cd822c989ee34e8076be6629}{update}} ()
+\begin{DoxyCompactList}\small\item\em Update \mbox{\hyperlink{class_t_f_t}{T\+FT}} screen and menu encoder. Must be called in the main loop. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class control a \mbox{\hyperlink{class_t_f_t}{T\+FT}} screeen based on I\+L\+I9341 chip. It include an incremental encoder to handle a menu. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_t_f_t_a1edafd09f201f2092315903931401df3}\label{class_t_f_t_a1edafd09f201f2092315903931401df3}} 
+\index{TFT@{TFT}!TFT@{TFT}}
+\index{TFT@{TFT}!TFT@{TFT}}
+\doxysubsubsection{\texorpdfstring{TFT()}{TFT()}}
+{\footnotesize\ttfamily T\+F\+T\+::\+T\+FT (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{CS,  }\item[{uint8\+\_\+t}]{DC,  }\item[{uint8\+\_\+t}]{R\+ST,  }\item[{\mbox{\hyperlink{class_encoder}{Encoder}} $\ast$}]{enc }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{class_t_f_t}{T\+FT}} object. This class use \mbox{\hyperlink{class_i_l_i9341__due}{I\+L\+I9341\+\_\+due}} library to control the \mbox{\hyperlink{class_t_f_t}{T\+FT}} screen. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em CS} & S\+PI Chip Select. Can be any digital pin \\
+\hline
+{\em DC} & Data / Command pin \\
+\hline
+{\em R\+ST} & Reset pin \\
+\hline
+{\em enc} & \mbox{\hyperlink{class_encoder}{Encoder}} to control \mbox{\hyperlink{class_t_f_t}{T\+FT}} menu \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_f_t_a5914daceddfd8a717042b351bc338c7a}\label{class_t_f_t_a5914daceddfd8a717042b351bc338c7a}} 
+\index{TFT@{TFT}!debugMessage@{debugMessage}}
+\index{debugMessage@{debugMessage}!TFT@{TFT}}
+\doxysubsubsection{\texorpdfstring{debugMessage()}{debugMessage()}}
+{\footnotesize\ttfamily void T\+F\+T\+::debug\+Message (\begin{DoxyParamCaption}\item[{String}]{pt1,  }\item[{String}]{pt2,  }\item[{String}]{pt3 }\end{DoxyParamCaption})}
+
+
+
+Print a general message on \mbox{\hyperlink{class_t_f_t}{T\+FT}} display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pt1} & General string \\
+\hline
+{\em pt2} & General string \\
+\hline
+{\em pt3} & General string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_t_f_t_a180ec9f3a734b084eef3b721b8f38067}\label{class_t_f_t_a180ec9f3a734b084eef3b721b8f38067}} 
+\index{TFT@{TFT}!drawInstrument@{drawInstrument}}
+\index{drawInstrument@{drawInstrument}!TFT@{TFT}}
+\doxysubsubsection{\texorpdfstring{drawInstrument()}{drawInstrument()}}
+{\footnotesize\ttfamily void T\+F\+T\+::draw\+Instrument (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{inst\+Num }\end{DoxyParamCaption})}
+
+
+
+Draw instrument on display. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em inst\+Num} & 0\+: Draw keys 1\+: Draw drums \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_t_f_t_ac2bebd770394fa623e007fb463323aef}\label{class_t_f_t_ac2bebd770394fa623e007fb463323aef}} 
+\index{TFT@{TFT}!init@{init}}
+\index{init@{init}!TFT@{TFT}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void T\+F\+T\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize \mbox{\hyperlink{class_t_f_t}{T\+FT}} and menu encoder. 
+
+\mbox{\Hypertarget{class_t_f_t_a56c15a26cd822c989ee34e8076be6629}\label{class_t_f_t_a56c15a26cd822c989ee34e8076be6629}} 
+\index{TFT@{TFT}!update@{update}}
+\index{update@{update}!TFT@{TFT}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}}
+{\footnotesize\ttfamily void T\+F\+T\+::update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Update \mbox{\hyperlink{class_t_f_t}{T\+FT}} screen and menu encoder. Must be called in the main loop. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+src/T\+F\+T.\+h\item 
+src/T\+F\+T.\+cpp\end{DoxyCompactItemize}

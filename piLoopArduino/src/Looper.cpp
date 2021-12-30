@@ -6,16 +6,19 @@
  * 
  * @param drumpad Keypad object to play sound
  * @param trackpad Keypad object to handle looptracks
+ * @param loopTracks Track object array to handle loopTracks
  * @param tft TFT object to control tft screen and encoder 
  * @param leds CRGB object to control leds
  * @param muteKey Key object to mute loop tracks
  * @param s Serial used to communicate with Raspberry
  * @param baudRate Serial baud rate
  */
-Looper:: Looper(Keypad* drumpad, Keypad* trackpad, TFT* tft, CRGB* leds, Key * muteKey, HardwareSerial* s, double baudRate){
+Looper:: Looper(Keypad* drumpad, Keypad* trackpad, Track* loopTracks, TFT* tft, CRGB* leds, Key * muteKey, HardwareSerial* s, double baudRate){
     _drumpad = drumpad;
     _trackpad = trackpad;
-    _tft = tft;
+    _loopTracks = loopTracks;
+    _loopTracksNumber = _trackpad->getNumbersRows() * _trackpad->getNumberColumns();
+    _tftObj = tft;
     _leds = leds;
     _muteKey = muteKey;
     _serial = s;
@@ -26,17 +29,32 @@ Looper:: Looper(Keypad* drumpad, Keypad* trackpad, TFT* tft, CRGB* leds, Key * m
  * @brief Initialize Looper object.
  *        Initialize serial communication.
  *        Initialize drumpad, trackpad, tft objects.
- *        Clear loop tracks.
+ *        Initialize loop tracks.
  * 
  */
 void Looper::init(){
     _serial->begin(_baudRate);
     _drumpad->init();
     _trackpad->init();
-    _tft->init();
-    for(uint8_t i=0; i<_trackpad->getNumberKeys(); i++){
-        _trackState[i] = CLEAR_REC;
-    }
+    _muteKey->init(INPUT_PULLUP);
+    _tftObj->init();
+
+    // Assign graphic part to each track
+    int colors[] = {ILI9341_BLUE, ILI9341_GREEN, ILI9341_YELLOW, ILI9341_RED};
+    uint16_t xStart = 40, yStart = 120;
+    uint8_t spacingX = 10, spacingY = 10;
+    uint16_t h = 50, w =50, radius = 3;
+    uint8_t id = 0;
+    for(uint8_t r=0; r<_trackpad->getNumbersRows(); r++){
+        uint16_t y = yStart + r * (h+spacingY);
+        for(uint8_t c=0; c<_trackpad->getNumberColumns(); c++){
+            uint16_t x = xStart + c * (w+spacingX);
+            _loopTracks[id].setGraphics(x, y, h, w, radius, colors[c]);
+            _loopTracks[id].init();
+            _tftObj->drawLoopTrack( _loopTracks[id]);
+            id++;
+        }
+    }    
 }
 
 /**
@@ -50,13 +68,13 @@ void Looper::init(){
  *                   5: OVERDUB
  *                   6: AUDIO_INPUT
  *                   7: LOOP_PRESSED
- * @param btnId Pressed button's ID
+ * @param btnId Pressed button's ID / Loop track
+ * @param value Used to send potentiometers values (volume) 
  */
-void Looper::sendDataToPi(Channel msgChannel, uint8_t btnId){
-    _serial->print((uint8_t)msgChannel);
-    _serial->print(" ");
-    _serial->print(btnId);
-    _serial->println("");
+void Looper::sendDataToPi(Channel msgChannel, uint8_t btnId, uint8_t value){
+    _serial->write((uint8_t)msgChannel);
+    _serial->write(btnId);
+    _serial->write(value);
 }
 
 
@@ -71,8 +89,11 @@ void Looper::getDataFromPi(){
         while(_serial->available() > 0){
             buffer[i] = (_serial->read() - '0');
             i++;
+            if( i== 3){
+               updateTrackState(buffer); 
+               i=0;
+            }
         }
-        updateTrackState(buffer);
     }
 }
 
@@ -93,16 +114,19 @@ void Looper::getDataFromPi(){
  *              msg[2]: metronome max value
  */
 void Looper::updateTrackState(uint8_t *msg){
-    uint8_t trackNumber = msg[2] - 1;                                                               // In puredata tracknumber goes from 1-8
-    TrackState newState = static_cast<TrackState>(msg[1]);      
+    TrackState newState = static_cast<TrackState>(msg[1]);  
+    uint8_t trackNumber = msg[2] - 1;                                                                   // In puredata tracknumber goes from 1-8    
     if(msg[0] == STATUS){
-        if(_trackState[trackNumber] == MUTE_REC && newState == MUTE_REC)    newState = STOP_REC;   // If already mute then unmute
-        _trackState[trackNumber] = newState;                                                       
+        if(_loopTracks[trackNumber].state == MUTE_REC && newState == MUTE_REC)    newState = STOP_REC;   // If already mute then unmute
+        _loopTracks[trackNumber].state = newState;                                                       
         changeTrackLedColor(trackNumber);
+        _tftObj->drawLoopTrack(_loopTracks[trackNumber]);
     }
     else if(msg[0] == COUNTER){
-        _metronome = msg[1];
-        _metronomeMax = msg[2];
+        _bpmCount = msg[1];
+        _bpm = msg[2];
+        _tftObj->drawBpm((String)_bpm);
+        _tftObj->drawPosition(_bpmCount);
     }  
 }
 
@@ -120,7 +144,7 @@ void Looper::updateDrumpad(){
             k = _drumpad->keys[i];
             if ( k.stateChanged){                                           // Only find keys that have changed state.
                 if(k.state != RELEASED){
-                    sendDataToPi(BTN_PRESSED, k.id);                        // Send data to Pi. 
+                    sendDataToPi(BTN_PRESSED, k.id, 0);                     // Send data to Pi. 
                     ledColor = CRGB::Cyan;
                 }
                 else{
@@ -137,6 +161,7 @@ void Looper::updateDrumpad(){
  * @brief Update trackpad buttons.
  *        Get pressed buttons and send a message to Raspberry if pressed.
  *        Update loop tracks status.
+ *        Update loop tracks volume.
  */
 void Looper::updateTrackpad(){
     Key k; Channel msgCh;
@@ -148,22 +173,32 @@ void Looper::updateTrackpad(){
                 if (k.state == HOLD){
                     msgCh = CLEAR_LOOP;                                                     // Clear
                 }                                 
-                else if(_trackState[i] == STOP_REC && k.state == PRESSED){
+                else if(_loopTracks[i].state == STOP_REC && k.state == PRESSED){
                     if(_muteKey->state == PRESSED || true )  msgCh = LOOP_PRESSED;           // ISSUE (cancel true): Mute 
                     else                                     msgCh = OVERDUB;                // Overdub 
                 }              
-                sendDataToPi(msgCh, i);                                                      // Send data to Pi. Channel + id(0-7)
+                sendDataToPi(msgCh, i, 0);                                                   // Send data to Pi. Channel, id(0-7), value (not used)
            }
         }
     }
+    // Update track volume
+    bool volumeChanged = false;
+    for(uint8_t i=0; i<_loopTracksNumber; i++){
+       volumeChanged = _loopTracks[i].update();
+       if(volumeChanged){
+           sendDataToPi(VOLUME, i,  _loopTracks[i].getVolume());
+           Serial.println(_loopTracks[i].getVolume());
+       }
+    }
 }
 
-/**
- * @brief Update TFT screen
- * 
- */
-void Looper::updateTFT(){
-    _tft->update();
+
+void Looper::update(){
+  updateDrumpad();
+  //_muteKey->update(_muteKey->pin);
+  updateTrackpad();
+  _tftObj->update();
+  
 }
 
 /**
@@ -173,7 +208,7 @@ void Looper::updateTFT(){
  */
 void Looper::changeTrackLedColor(uint8_t trackNumber){
     CRGB c = CRGB::Black;
-    switch (_trackState[trackNumber]){
+    switch (_loopTracks[trackNumber].state){
         case CLEAR_REC:
             c = CRGB::Black;
             break;
@@ -208,53 +243,7 @@ void Looper::changeTrackLedColor(uint8_t trackNumber){
 void Looper::changeLedColor(uint8_t ledId, CRGB color){
     _leds[ledId] = color;
     FastLED.show();
-    Serial.print(" LED ");Serial.println(ledId);
 }
 
-/**
- * @brief Serial debug. Key status
- * 
- * @param k Selected key
- */
-void Looper::debugKey(Key k){
-    String msg = "IDLE";
-    Serial.print("Button ID: "); Serial.print( k.id);
-    Serial.print(" state: "); 
-    switch(k.state){
-         case RELEASED:  
-            msg = "RELEASED"; 
-            break;
-        case PRESSED:  
-            msg = "PRESSED"; 
-            break;
-        case HOLD:  
-            msg = "HOLD"; 
-            break;
-    }
-    Serial.print(msg);
-    Serial.print(" state changed: "); Serial.print( k.stateChanged);
-    Serial.print(" actual value: "); Serial.print( k.actualValue);
-    Serial.println("");
-}
 
-/**
- * @brief Serial debug. Loop track
- * 
- * @param id Loop track ID
- */
-void Looper::debugLoopTrack(uint8_t id){
-    String msg = "";
-    switch(_trackState[id]){
-        case CLEAR_REC:         msg = "CLEAR_REC";  break;
-        case START_REC:         msg = "START_REC"; break;
-        case STOP_REC:          msg = "STOP_REC"; break;
-        case START_OVERDUB:     msg = "START_OVERDUB"; break;
-        case STOP_OVERDUB:      msg = "STOP_OVERDUB"; break;
-        case WAIT_REC:          msg = "WAIT_REC"; break;
-        case MUTE_REC:          msg = "MUTE_REC"; break;
-    }
-    Serial.print(" TRACK ID "); Serial.print(id+1);
-    Serial.print(" STATUS "); Serial.print(msg);
-    Serial.println("");
 
-}

@@ -3,11 +3,11 @@
 
 #include "Keypad.h"
 #include "TFT.h"
+#include "Track.h"
 #include <FastLED.h>
 
-typedef enum {CLEAR_REC, START_REC, STOP_REC, START_OVERDUB, STOP_OVERDUB, WAIT_REC, MUTE_REC}  TrackState;
 typedef enum {STATUS, COUNTER } MsgId;
-typedef enum {AUDIO_MASTER, SELECT_KIT, BTN_PRESSED, CLEAR_LOOP, CLEAR_ALL, OVERDUB, AUDIO_INPUT, LOOP_PRESSED}Channel;
+typedef enum {AUDIO_MASTER, SELECT_KIT, BTN_PRESSED, CLEAR_LOOP, CLEAR_ALL, OVERDUB, AUDIO_INPUT, LOOP_PRESSED, VOLUME}Channel;
 
 /**
  * @brief This class control a looper station.
@@ -24,26 +24,25 @@ class Looper{
         Keypad* _trackpad;
         HardwareSerial* _serial;
         double _baudRate;
-        TrackState _trackState[8];
+        Track* _loopTracks;
         Key* _muteKey;                
-        uint8_t _metronome;
-        uint8_t _metronomeMax;
+        uint8_t _bpmCount;
+        uint8_t _bpm;
         CRGB* _leds;
-        TFT *_tft;
+        TFT* _tftObj;
+        uint8_t _loopTracksNumber;
         
     public:
-        Looper(Keypad* drumpad, Keypad* trackpad, TFT* tft, CRGB* leds, Key * muteKey, HardwareSerial* s, double baudRate);
+        Looper(Keypad* drumpad, Keypad* trackpad, Track* loopTracks, TFT* tft, CRGB* leds, Key * muteKey, HardwareSerial* s, double baudRate);
         void init();
-        void sendDataToPi(Channel msgChannel, uint8_t btnId);
+        void sendDataToPi(Channel msgChannel, uint8_t btnId, uint8_t value);
         void updateTrackState( uint8_t *msg);
+        void update();
         void updateDrumpad();
         void updateTrackpad();
-        void updateTFT();
         void changeLedColor(uint8_t ledId, CRGB color);
         void changeTrackLedColor(uint8_t trackNumber);
         void getDataFromPi();
-        void debugKey(Key k);
-        void debugLoopTrack(uint8_t id);
 
 };
 

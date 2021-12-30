@@ -4,8 +4,6 @@
 #include "Key.h"
 
 #define DEBOUNCE_TIME 	10 // Not less than 1 ms
-#define HOLD_TIME 		500
-
 
 // bperrybap - Thanks for a well reasoned argument and the following macro(s).
 // See http://arduino.cc/forum/index.php/topic,142041.msg1069480.html#msg1069480
@@ -34,18 +32,17 @@ class Keypad : public Key {
 		void init();
 		bool getKeys();
 		int getNumberKeys();
+		bool scanKeys();
+		uint8_t getNumbersRows();
+		uint8_t getNumberColumns();
 
 
 	private:
 		uint8_t *_idKey, *_idLed;
 		uint8_t *_rowPins, *_colPins;
-		uint8_t _nCols, _nRows;
-		
-		unsigned long _startTime, _holdTimer;
-		unsigned long _debounceTime, _holdTime;
-
-		void scanKeys();
-		bool updateList();
+		uint8_t _nCols, _nRows;	
+		unsigned long _scanTime;
+	
 };
 
 #endif

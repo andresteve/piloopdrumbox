@@ -36,7 +36,7 @@ class Py_to_pd:
         self.path = pd_path
         self.port = send_port
 
-    def send2Pd(self, channel, message=''):
+    def send2Pd(self, channel, ID='', value = ''):
         """
         Send messages from Python to PD.
         channel: Link each message to a channel to be received in PD
@@ -44,7 +44,7 @@ class Py_to_pd:
             1: select_kit (int value)
         message: should be a string msg to be send as variable to PD
         """
-        os.system("echo '" + str(channel) + " " + str(message) + ";' | "+
+        os.system("echo '" + str(channel) + " " + str(ID) + " " + str(value) + ";' | "+
             self.path + "pdsend " + str(self.port))
 
 
@@ -57,7 +57,6 @@ def read_pd_input(proc, q):
     while True:
         pd_input = proc.readline()
         q.put(pd_input)
-        #time.sleep(1/100)
 
 
 def process_pd_input(q):
@@ -95,16 +94,32 @@ def set_metronome(value, total_beats):
         lcd.lcd_display_string_pos(block_size * BLOCK, 2, block_size*value)
 
 
-def read_button_status():
+def readSerial():
     """
     Thread function reads the button_pad input
     """
-    msg = arduinoSerial.readline().decode('utf-8')
-    if(msg):
-        x_list = msg.split() #Receiving buttonId and channel
-        ch = int(x_list[0])
-        btnId = int(x_list[1]) + 1
-        send_msg.send2Pd(ch,btnId)
+    buff = [0,0,0]
+    i = 0
+    if(arduinoSerial.inWaiting() >= 3):
+        while(arduinoSerial.inWaiting()):
+            byte = arduinoSerial.read()
+            buff[i] = int.from_bytes(byte, byteorder='little', signed=False)
+            i = i +1
+            if(i==3):
+                i=0
+                ch = buff[0]
+                btnId = buff[1] + 1
+                value = buff[2]
+                send_msg.send2Pd(ch,btnId,value)
+                
+        
+    # msg = arduinoSerial.readline().decode('utf-8')
+    # if(msg):
+        # x_list = msg.split() #Receiving buttonId and channel
+        # print(x_list)
+        # ch = int(x_list[0])
+        # btnId = int(x_list[1]) + 1
+        # send_msg.send2Pd(ch,btnId)
         
 
  
@@ -160,4 +175,4 @@ time.sleep(2)
 
 # Run button loop
 while True:
-    read_button_status()
+    readSerial()

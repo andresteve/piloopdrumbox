@@ -9,7 +9,8 @@
 
 #define TFT_WIDTH   320
 #define TFT_HEIGHT  240
-typedef enum{PLAY, FILTER, SAVE}MenuState;
+
+typedef enum{LOAD_SOUND, FX, QUIT}MenuItems;
 
 /**
  * @brief This class control a TFT screeen based on ILI9341 chip.
@@ -21,6 +22,8 @@ class TFT{
         uint8_t _pinCS, _pinDC, _pinRST;
         ILI9341_due* _tft;
         Encoder *_menuEncoder;
+        uint8_t _selectedPage, _selectedItem;
+        const char* _menuItems[3] = {"Load Sound", "Apply FX", "QUitta CazZo"}; 
 
     public:
         TFT(uint8_t CS, uint8_t DC, uint8_t RST, Encoder* enc);

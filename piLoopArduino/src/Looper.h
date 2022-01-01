@@ -25,6 +25,7 @@ class Looper{
         HardwareSerial* _serial;
         double _baudRate;
         Track* _loopTracks;
+        Track* _loopMaster;
         Key* _muteKey;                
         uint8_t _bpmCount;
         uint8_t _bpm;
@@ -33,7 +34,7 @@ class Looper{
         uint8_t _loopTracksNumber;
         
     public:
-        Looper(Keypad* drumpad, Keypad* trackpad, Track* loopTracks, TFT* tft, CRGB* leds, Key * muteKey, HardwareSerial* s, double baudRate);
+        Looper(Keypad* drumpad, Keypad* trackpad, Track* loopTracks, Track* loopMaster, TFT* tft, CRGB* leds, Key * muteKey, HardwareSerial* s, double baudRate);
         void init();
         void sendDataToPi(Channel msgChannel, uint8_t btnId, uint8_t value);
         void updateTrackState( uint8_t *msg);

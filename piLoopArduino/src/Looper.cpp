@@ -13,10 +13,11 @@
  * @param s Serial used to communicate with Raspberry
  * @param baudRate Serial baud rate
  */
-Looper:: Looper(Keypad* drumpad, Keypad* trackpad, Track* loopTracks, TFT* tft, CRGB* leds, Key * muteKey, HardwareSerial* s, double baudRate){
+Looper:: Looper(Keypad* drumpad, Keypad* trackpad, Track* loopTracks, Track* loopMaster, TFT* tft, CRGB* leds, Key * muteKey, HardwareSerial* s, double baudRate){
     _drumpad = drumpad;
     _trackpad = trackpad;
     _loopTracks = loopTracks;
+    _loopMaster = loopMaster;
     _loopTracksNumber = _trackpad->getNumbersRows() * _trackpad->getNumberColumns();
     _tftObj = tft;
     _leds = leds;
@@ -39,7 +40,7 @@ void Looper::init(){
     _muteKey->init(INPUT_PULLUP);
     _tftObj->init();
 
-    // Assign graphic part to each track
+    // Assign graphic part to each track and initialize loop tracks
     int colors[] = {ILI9341_BLUE, ILI9341_GREEN, ILI9341_YELLOW, ILI9341_RED};
     uint16_t xStart = 40, yStart = 120;
     uint8_t spacingX = 10, spacingY = 10;
@@ -55,6 +56,7 @@ void Looper::init(){
             id++;
         }
     }    
+    _loopMaster->init();
 }
 
 /**
@@ -186,9 +188,13 @@ void Looper::updateTrackpad(){
     for(uint8_t i=0; i<_loopTracksNumber; i++){
        volumeChanged = _loopTracks[i].update();
        if(volumeChanged){
-           sendDataToPi(VOLUME, i,  _loopTracks[i].getVolume());
+           sendDataToPi(VOLUME, _loopTracks[i].getId(),  _loopTracks[i].getVolume());
            Serial.println(_loopTracks[i].getVolume());
        }
+    }
+    // Update master volume
+    if(_loopMaster->update()){
+         sendDataToPi(VOLUME, _loopMaster->getId(),   _loopMaster->getVolume());
     }
 }
 

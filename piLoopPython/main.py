@@ -134,11 +134,6 @@ SERIAL_BAUD_RATE = 115200       #serial speed
 # Set up communication to PureData
 send_msg = Py_to_pd(PD_PATH, PORT_SEND_TO_PD)
 
-# Get the number of drum samples
-drum_files = os.listdir('../puredata/drum_sounds')
-kit = ['crash', 'hh', 'kick', 'snare']
-num_drumkits = max([int(x.split('_')[1]) for x in drum_files if x.split('_')[0] in kit])
-
 
 # start the socket
 args = ["pdreceive", str(PORT_RECEIVE_FROM_PD)]

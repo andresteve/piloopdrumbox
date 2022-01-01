@@ -1,5 +1,6 @@
 #include "TFT.h"
 
+
 /**
  * @brief Construct a new TFT object. 
  *        This class use ILI9341_due library to control the TFT screen.
@@ -180,5 +181,22 @@ void TFT::update(){
 }
 
 void TFT::updateMenu(){
+  if (_selectedPage == 0){
+    _tft->setTextColor(ILI9341_WHITE);
+    _tft->printAt(_menuItems[0], 20, 50);
+    _tft->printAt(_menuItems[1], 20, 70);
+    _tft->printAt(_menuItems[2], 20, 90);
+  }
+  else if (_selectedPage == 1){
+    switch (_selectedItem){
+      case LOAD_SOUND:
+
+        break;
+
+      default:
+        break;
+    }
+  }
 }
+
 

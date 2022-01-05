@@ -1,7 +1,5 @@
-﻿# Pi-loop-drumbox!
-```
-![Screenshot](images/diagram.png)
-```
+﻿# Pi-looper!
+![Connection diagram](/images/diagram.png)
 
 ## Install requirements
 ### PureData
@@ -14,6 +12,22 @@ Then, reconfigure the index of audio devices: `/lib/modprobe.d/aliases.conf` and
 Check if the only audio device is the USB-soundcard through `cat /proc/asound/cards`, which should give the index 0 to the soundcard. 
 
 ### Python
-The Python code is based on Python3. 
+The Python code is based on Python3. `sudo apt-get install python3`
+
+### Auto startup
+In order to launch python script and from there puredata follow the instructions below.
+
+1. Install Xterm: `sudo apt-get install xterm`
+2. If doesn't exist create those directory: `mkdir  /home/pi/.config/lxsession` and `mkdir  /home/pi/.config/lxsession/LXDE-pi`
+3. Edit autostart file: `nano ~/.config/lxsession/LXDE-pi/autostart` 
+   with these lines (path to launcher.sh file could be different): 
+```
+#!/bin/bash
+
+@lxpanel --profile LXDE-pi
+@pcmanfm --desktop --profile LXDE-pi
+sh /home/pi/pilooper/python/launcher.sh
+@xscreensaver -no-splash
+```
 
 

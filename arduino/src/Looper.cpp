@@ -63,7 +63,7 @@ void Looper::init(){
  * @brief Send data to Raspberry though serial
  * 
  * @param msgChannel 0: AUDIO_MASTER
- *                   1: SELECT_KIT
+ *                   1: DRUMPAD_SOUND
  *                   2: BTN_PRESSED
  *                   3: CLEAR_LOOP
  *                   4: CLEAR_ALL
@@ -144,6 +144,21 @@ void Looper::updateDrumpad(){
     if (_drumpad->getKeys()){
         for (uint8_t i=0; i< (_drumpad->getNumberKeys()) ; i++){            // Scan the whole key list.
             k = _drumpad->keys[i];
+            if(i>=12){                                                       //TODO: treat last four button as trackpad cancel ALL if statement
+                Channel msgCh;
+                if (k.stateChanged && k.state != RELEASED){                                     // Only find keys that have changed state.
+                msgCh = LOOP_PRESSED;                                                       // Start-stop rec
+                if (k.state == HOLD){
+                    msgCh = CLEAR_LOOP;                                                     // Clear
+                }                                 
+                else if(_loopTracks[i-12].state == STOP_REC && k.state == PRESSED){
+                    if(_muteKey->state == PRESSED )  msgCh = LOOP_PRESSED;           
+                    else                             msgCh = OVERDUB;                       // Overdub 
+                }              
+                sendDataToPi(msgCh, i-12, 0);                                                // Send data to Pi. Channel, id(0-7), value (not used)
+           }
+            } 
+            else{                                                              
             if ( k.stateChanged){                                           // Only find keys that have changed state.
                 if(k.state != RELEASED){
                     sendDataToPi(BTN_PRESSED, k.id, 0);                     // Send data to Pi. 
@@ -153,7 +168,8 @@ void Looper::updateDrumpad(){
                     ledColor = CRGB::Black;
                 }
                 changeLedColor(k.idLed, ledColor);
-           }
+            }
+            }
         }
     }
 }
@@ -176,8 +192,8 @@ void Looper::updateTrackpad(){
                     msgCh = CLEAR_LOOP;                                                     // Clear
                 }                                 
                 else if(_loopTracks[i].state == STOP_REC && k.state == PRESSED){
-                    if(_muteKey->state == PRESSED || true )  msgCh = LOOP_PRESSED;           // ISSUE (cancel true): Mute 
-                    else                                     msgCh = OVERDUB;                // Overdub 
+                    if(_muteKey->state == PRESSED )  msgCh = LOOP_PRESSED;           
+                    else                             msgCh = OVERDUB;                       // Overdub 
                 }              
                 sendDataToPi(msgCh, i, 0);                                                   // Send data to Pi. Channel, id(0-7), value (not used)
            }
@@ -189,7 +205,6 @@ void Looper::updateTrackpad(){
        volumeChanged = _loopTracks[i].update();
        if(volumeChanged){
            sendDataToPi(VOLUME, _loopTracks[i].getId(),  _loopTracks[i].getVolume());
-           Serial.println(_loopTracks[i].getVolume());
        }
     }
     // Update master volume
@@ -201,10 +216,12 @@ void Looper::updateTrackpad(){
 
 void Looper::update(){
   updateDrumpad();
-  //_muteKey->update(_muteKey->pin);
+  _muteKey->update(_muteKey->pin);
   updateTrackpad();
   _tftObj->update();
-  
+  if(_tftObj->loadSound()){
+    sendDataToPi(DRUMPAD_SOUND,_tftObj->getSelectedItem(), 0);
+  }
 }
 
 /**

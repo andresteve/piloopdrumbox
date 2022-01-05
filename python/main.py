@@ -112,14 +112,7 @@ def readSerial():
                 value = buff[2]
                 send_msg.send2Pd(ch,btnId,value)
                 
-        
-    # msg = arduinoSerial.readline().decode('utf-8')
-    # if(msg):
-        # x_list = msg.split() #Receiving buttonId and channel
-        # print(x_list)
-        # ch = int(x_list[0])
-        # btnId = int(x_list[1]) + 1
-        # send_msg.send2Pd(ch,btnId)
+
         
 
  
@@ -158,7 +151,7 @@ process_pd_thread.start()
 # Setup audio card
 os.chdir('script')
 os.system('./Playback_to_Lineout.sh')
-os.system('./Record_from_Headset.sh')
+os.system('./Record_from_Linein.sh')
 os.chdir('../')
 
 # start PD

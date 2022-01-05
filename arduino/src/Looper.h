@@ -7,7 +7,7 @@
 #include <FastLED.h>
 
 typedef enum {STATUS, COUNTER } MsgId;
-typedef enum {AUDIO_MASTER, SELECT_KIT, BTN_PRESSED, CLEAR_LOOP, CLEAR_ALL, OVERDUB, AUDIO_INPUT, LOOP_PRESSED, VOLUME}Channel;
+typedef enum {AUDIO_MASTER, DRUMPAD_SOUND, BTN_PRESSED, CLEAR_LOOP, CLEAR_ALL, OVERDUB, AUDIO_INPUT, LOOP_PRESSED, VOLUME}Channel;
 
 /**
  * @brief This class control a looper station.

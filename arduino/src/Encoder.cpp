@@ -34,25 +34,31 @@ void Encoder::init(){
 /**
  * @brief Read input pin and update pulse counter and direction.
  *        It count from 0 to ppr.
+ *        Read button switch.
  */
 void Encoder::updateEncoder(){
 	_currentStateCLK = digitalRead(_pinCLK);
+    _currentStateSW = !digitalRead(_pinSW); // Active low
 	if (_currentStateCLK != _lastStateCLK  && _currentStateCLK == 1){
 		if (digitalRead(_pinDT) != _currentStateCLK) {
 			_count --;
-            _dir = 0;
+            _dir = CW;
 		} else {
 			_count ++;
-            _dir = 1;
+            _dir = CCW;
 		}
         if(_count > _ppr)    _count = 0;
         else if(_count < 0)  _count = _ppr;
     }
+    else{
+        _dir = IDLE;
+    }
 
-    if(!digitalRead(_pinSW))    _pressed = true;
-    else                        _pressed = false;
+    if(_currentStateSW && _currentStateSW != _lastStateSW)    _pressed = true;
+    else                                                      _pressed = false;
 
 	_lastStateCLK = _currentStateCLK;
+    _lastStateSW = _currentStateSW;
 }
 
 /**
@@ -67,7 +73,7 @@ uint8_t Encoder::getPulses(){
 /**
  * @brief Get spin direction
  * 
- * @return 0: CW    1:CCW
+ * @return 0: IDLE  1: CW  2:CCW
  */
 uint8_t Encoder::getDirection(){
     return _dir;
@@ -80,4 +86,26 @@ uint8_t Encoder::getDirection(){
  */
 bool Encoder::isPressed(){
     return _pressed;
+}
+
+/**
+ * @brief Detect if the encoder is moving
+ * 
+ * @return bool
+ */
+bool Encoder::isMoving(){
+    if(_dir != IDLE) return true;
+    else             return false;
+}
+
+void Encoder::debug(){
+    if(isMoving()){
+        Serial.print("DIRECTION ");
+        Serial.println(getDirection());
+        Serial.print("PULSES ");
+        Serial.println(getPulses());
+        if(isPressed()){
+            Serial.println("PRESSED!");
+        }
+    }
 }
